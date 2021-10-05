@@ -3,7 +3,6 @@
 
 main {
     width: 100%;
-    background-color: white;
 }
 
 .header-container {
@@ -18,12 +17,12 @@ main {
         height: 50px;
         padding: 24px 0px;
         position: relative;
-        margin-top: 8px;
+        padding-top: 32px;
 
         .cart-icon {
             font-size: 1.5rem;
             position: absolute;
-            top: 38px;
+            top: 46px;
             transition: all 0.2s;
         }
         .cart-icon:hover {
