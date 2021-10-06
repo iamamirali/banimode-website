@@ -1,0 +1,26 @@
+<footer>
+    <div class="footer-container">
+        <div class="refrence-list">
+            <div class="list-container">
+                <h3 class="list-title">خرید</h3>
+                <ul class="links-list">
+                    <li class="list-item" *ngFor='let item of purchase'>{{ item }}</li>
+                </ul>
+            </div>
+
+            <div class="list-container">
+                <h3 class="list-title">خدمات مشتریان</h3>
+                <ul class="links-list">
+                    <li class="list-item" *ngFor='let item of services'>{{ item }}</li>
+                </ul>
+            </div>
+
+            <div class="list-container">
+                <h3 class="list-title">اطلاعات بانی مد</h3>
+                <ul class="links-list">
+                    <li class="list-item" *ngFor='let item of info'>{{ item }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

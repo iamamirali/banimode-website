@@ -1,0 +1,16 @@
+footer {
+    margin-top: 200px;
+    background-color: white;
+    width: 100%;
+    font-family: 'iranyekan';
+
+    .footer-container {
+        max-width: 1200px;
+        margin: auto;
+        
+        .refrence-list {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
