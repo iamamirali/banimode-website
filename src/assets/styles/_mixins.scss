@@ -1,0 +1,12 @@
+@import 'variables';
+
+@mixin green-btn {
+    background-color: $green;
+    color: $lightWhite;
+    border-style: none;
+    border-radius: 28px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-family: 'iranyekan';
+    transition: all 0.2s;
+}
