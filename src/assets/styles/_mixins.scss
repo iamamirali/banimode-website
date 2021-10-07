@@ -10,3 +10,19 @@
     font-family: 'iranyekan';
     transition: all 0.2s;
 }
+
+@mixin green-btn-outline {
+    background: none;
+    color: $green;
+    border: 1px solid $green;
+    border-radius: 28px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-family: 'iranyekan';
+    transition: all 0.2s;
+}
+
+@mixin green-btn-outline-hover {
+    color: $darkGreen;
+    border-color: $darkGreen;
+}

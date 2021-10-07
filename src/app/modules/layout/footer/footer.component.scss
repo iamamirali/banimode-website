@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'mixins';
+
 footer {
     margin-top: 200px;
     background-color: white;
@@ -6,11 +9,118 @@ footer {
 
     .footer-container {
         max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
         margin: auto;
         
         .refrence-list {
+            width: 45%;
             display: flex;
             justify-content: space-between;
+
+            .list-container {
+                .list-title {
+                    color: $gray;
+                    margin-bottom: 24px;
+                }
+
+                .links-list {
+                    list-style: none;
+
+                    .list-item {
+                        font-size: 0.9rem;
+                        margin: 12px 0px;
+                    }
+                }
+            }
+        }
+
+        .contact-info-container {
+            .contact-info-title {
+                margin-bottom: 24px;
+
+                p {
+                    font-size: 0.9rem;
+                    margin-top: 10px;
+                }
+            }
+
+            .contact-ways-container {
+                p {
+                    color: $darkGray;
+                    font-size: 0.85rem;
+                    margin-bottom: 20px;
+
+                    a {
+                        color: black;
+                        font-family: 'iranyekan-bold';
+                        font-size: 1.05rem;
+                    }
+                    a:hover {
+                        color: $green;
+                    }
+                }
+            }
+            
+        }
+
+        .icons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            direction: ltr;
+            
+            .footer-brand {
+                width: 190px;
+                margin-bottom: 30px;
+                cursor: pointer;
+            }
+
+            .btn-download {
+                @include green-btn-outline;
+                padding: 6px 48px;
+                margin-bottom: 36px;
+                cursor: pointer;
+
+                i {
+                    margin-left: 6px;
+                }
+            }
+            .btn-download:hover {
+                @extend .btn-download;
+                @include green-btn-outline-hover;
+            }
+
+            .social-icons {
+                display: flex;
+                
+                .social-icon {
+                    width: 22px;
+                    height: 22px;
+                    margin: 0px 24px 0px 12px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    
+                    img {
+                        width: 100%;
+                    }
+                }
+                .social-icon::after {
+                    content: '';
+                    position: absolute;
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    border: 1px solid black;
+                    top: -13px;
+                    right: -13px;
+                    transition: all 0.2s;
+                }
+                .social-icon:hover::after {
+                    border-color: $green;
+                }
+            }
         }
     }
 }
