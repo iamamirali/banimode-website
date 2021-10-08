@@ -1,66 +1,94 @@
 <footer>
     <div class="footer-container">
-        <div class="refrence-list">
-            <div class="list-container">
-                <h4 class="list-title">خرید</h4>
-                <ul class="links-list">
-                    <li class="list-item" *ngFor='let item of purchase'>
-                        <a href="">{{ item }}</a>
-                    </li>
-                </ul>
+        <div class="footer-row-1">
+            <div class="refrence-list">
+                <div class="list-container">
+                    <h4 class="list-title">خرید</h4>
+                    <ul class="links-list">
+                        <li class="list-item" *ngFor='let item of purchase'>
+                            <a href="">{{ item }}</a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="list-container">
+                    <h4 class="list-title">خدمات مشتریان</h4>
+                    <ul class="links-list">
+                        <li class="list-item" *ngFor='let item of services'>
+                            <a href="">{{ item }}</a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="list-container">
+                    <h4 class="list-title">اطلاعات بانی مد</h4>
+                    <ul class="links-list">
+                        <li class="list-item" *ngFor='let item of info'>
+                            <a href="">{{ item }}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="list-container">
-                <h4 class="list-title">خدمات مشتریان</h4>
-                <ul class="links-list">
-                    <li class="list-item" *ngFor='let item of services'>
-                        <a href="">{{ item }}</a>
-                    </li>
-                </ul>
+    
+            <div class="contact-info-container">
+                <div class="contact-info-title">
+                    <h4>میزبان صدای گرمتان هستیم</h4>
+                    <p>۷ روز هفته - ۲۴ ساعته</p>
+                </div>
+    
+                <div class="contact-ways-container">
+                    <p>تلفن: <a href="tel:+982191007797">91007797-021</a></p>
+                    <p>پیامک: <a href="sms:+9810001654">10001654</a></p>
+                    <p>ایمیل: <a href="mailto:customer@banimode.com">customer@banimode.com</a></p>
+                </div>
             </div>
-
-            <div class="list-container">
-                <h4 class="list-title">اطلاعات بانی مد</h4>
-                <ul class="links-list">
-                    <li class="list-item" *ngFor='let item of info'>
-                        <a href="">{{ item }}</a>
-                    </li>
-                </ul>
+    
+            <div class="icons-container">
+                <a>
+                    <img class="footer-brand" src="./../../../../assets/icons/banilogo.png" alt="banimode">
+                </a>
+                <button class="btn-download">دانلود اپلیکیشن <i class="fas fa-download"></i></button>
+                <div class="social-icons">
+                    <a href="https://www.twitter.com/Banimodeir">
+                        <div class="social-icon">
+                            <img src="./../../../../assets/icons/social-icons/footer-twitter.svg" alt="twitter">
+                        </div>
+                    </a>
+    
+                    <a href="https://www.aparat.com/banimode">
+                        <div class="social-icon">
+                            <img src="./../../../../assets/icons/social-icons/footer-aparat.svg" alt="aparat">
+                        </div>
+                    </a>
+    
+                    <a href="https://www.t.me/banimodecom">
+                        <div class="social-icon">
+                            <img src="./../../../../assets/icons/social-icons/footer-telegram.svg" alt="telegram">
+                        </div>
+                    </a>
+    
+                    <a href="https://www.instagram.com/banimodecom">
+                        <div class="social-icon">
+                            <img src="./../../../../assets/icons/social-icons/footer-insta.svg" alt="instagram">
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="contact-info-container">
-            <div class="contact-info-title">
-                <h4>میزبان صدای گرمتان هستیم</h4>
-                <p>۷ روز هفته - ۲۴ ساعته</p>
+        <div class="footer-row-2">
+            <div class="about-banimode">
+                <h4 class="about-title">فروشگاه اینترنتی پوشاک بانی مد</h4>
+                <p class="about-content">
+                    مرکز خرید آنلاین بانی‌مد فعالیت خود را در زمینۀ پوشاک به‌صورت تخصصی از سال 1393 آغاز نمود و طی این سال‌ها توانسته ضمن همکاری با بیش از 400 برند ایرانی و بین‌المللی، در مسیر بهبود تجربۀ خرید آنلاین پوشاک در ایران گام بردارد. مهم‌ترین رسالت بانی‌مد بهبود کیفیت سبک زندگی است که رضایت اکثریت مشتریان گرامی از این فروشگاه اینترنتی گواهی بر این ادعاست؛ رضایتی که پشتوانه‌ای استوار برای تحقق
+                </p>
             </div>
 
-            <div class="contact-ways-container">
-                <p>تلفن: <a href="tel:+982191007797">91007797-021</a></p>
-                <p>پیامک: <a href="sms:+9810001654">10001654</a></p>
-                <p>ایمیل: <a href="mailto:customer@banimode.com">customer@banimode.com</a></p>
-            </div>
-        </div>
-
-        <div class="icons-container">
-            <img class="footer-brand" src="./../../../../assets/icons/banilogo.png" alt="banimode">
-            <button class="btn-download">دانلود اپلیکیشن <i class="fas fa-download"></i></button>
-            <div class="social-icons">
-                <div class="social-icon">
-                    <img src="./../../../../assets/icons/social-icons/footer-twitter.svg" alt="twitter">
-                </div>
-
-                <div class="social-icon">
-                    <img src="./../../../../assets/icons/social-icons/footer-aparat.svg" alt="aparat">
-                </div>
-
-                <div class="social-icon">
-                    <img src="./../../../../assets/icons/social-icons/footer-telegram.svg" alt="telegram">
-                </div>
-
-                <div class="social-icon">
-                    <img src="./../../../../assets/icons/social-icons/footer-insta.svg" alt="instagram">
-                </div>
+            <div class="signs">
+                <img src="./../../../../assets/icons/samandehi.png@2x.png" alt="" class="sign-item">
+                <img src="./../../../../assets/icons/logo-itehad@2x.png" alt="" class="sign-item">
+                <img src="./../../../../assets/icons/eanjoman-foot.png" alt="" class="sign-item">
+                <img src="./../../../../assets/icons/logo.aspx.png" alt="" class="sign-item">
             </div>
         </div>
     </div>

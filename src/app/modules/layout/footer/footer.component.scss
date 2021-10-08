@@ -2,16 +2,21 @@
 @import 'mixins';
 
 footer {
-    margin-top: 200px;
+    margin-top: 100px;
     background-color: white;
     width: 100%;
     font-family: 'iranyekan';
+    padding-top: 48px;
+    border-top: 5px solid $milky;
 
     .footer-container {
         max-width: 1200px;
-        display: flex;
-        justify-content: space-between;
         margin: auto;
+
+        .footer-row-1 {
+            display: flex;
+            justify-content: space-between;
+        }
         
         .refrence-list {
             width: 45%;
@@ -30,6 +35,31 @@ footer {
                     .list-item {
                         font-size: 0.9rem;
                         margin: 12px 0px;
+                        
+                        a {
+                            color: $lightBlack;
+                            position: relative;
+                            transition: all 0.3s;
+                        }
+                        a:hover {
+                            color: $green;
+                        }
+                        a::after {
+                            content: '';
+                            position: absolute;
+                            height: 1px;
+                            background-color: $green;
+                            bottom: -2px;
+                            margin: 0px auto;
+                            left: 0%;
+                            width: 100%;
+                            transform: scaleX(0);
+                            transition: transform 0.3s;
+                        }
+                        a:hover:after {
+                            transform: scaleX(1);
+                        }
+
                     }
                 }
             }
@@ -78,7 +108,7 @@ footer {
 
             .btn-download {
                 @include green-btn-outline;
-                padding: 6px 48px;
+                padding: 6px 36px;
                 margin-bottom: 36px;
                 cursor: pointer;
 
@@ -106,6 +136,9 @@ footer {
                         width: 100%;
                     }
                 }
+                .social-icon:hover {
+                    filter: invert(49%) sepia(66%) saturate(2615%) hue-rotate(123deg) brightness(98%) contrast(103%);
+                }
                 .social-icon::after {
                     content: '';
                     position: absolute;
@@ -119,6 +152,39 @@ footer {
                 }
                 .social-icon:hover::after {
                     border-color: $green;
+                }
+            }
+        }
+
+        .footer-row-2 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 36px;
+            
+            .about-banimode{
+                max-width: 57%;
+
+                .about-title {
+                    color: $gray;
+                    margin-bottom: 8px;
+                }
+
+                .about-content {
+                    line-height: 32px;
+                    color: $lightBlack;
+                    text-align: justify;
+                    font-size: 0.9rem;
+                }
+            }
+
+            .signs {
+                direction: ltr;
+                margin-top: 24px;
+
+                .sign-item {
+                    cursor: pointer;
+                    width: 90px;
+                    margin-right: 18px;
                 }
             }
         }
