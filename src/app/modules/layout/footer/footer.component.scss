@@ -6,7 +6,10 @@ footer {
     background-color: white;
     width: 100%;
     font-family: 'iranyekan';
-    padding-top: 48px;
+    padding: {
+        top: 48px;
+        bottom: 16px;
+    }
     border-top: 5px solid $milky;
 
     .footer-container {
@@ -109,7 +112,7 @@ footer {
             .btn-download {
                 @include green-btn-outline;
                 padding: 6px 36px;
-                margin-bottom: 36px;
+                margin-bottom: 48px;
                 cursor: pointer;
 
                 i {
@@ -163,6 +166,7 @@ footer {
             
             .about-banimode{
                 max-width: 57%;
+                margin-bottom: 24px;
 
                 .about-title {
                     color: $gray;
@@ -174,6 +178,12 @@ footer {
                     color: $lightBlack;
                     text-align: justify;
                     font-size: 0.9rem;
+
+                    .btn-read-more {
+                        color: $green;
+                        font-family: 'iranyekan-bold';
+                        cursor: pointer;
+                    }
                 }
             }
 
@@ -186,6 +196,20 @@ footer {
                     width: 90px;
                     margin-right: 18px;
                 }
+            }
+        }
+
+        .footer-copyright {
+            display: flex;
+            justify-content: space-between;
+            direction: ltr;
+            
+            .copyright-content-en {
+                font-size: 0.8rem;
+                font-family: 'iranyekan-extra-bold';
+            }
+            .copyright-content-fa {
+                font-size: 0.75rem;
             }
         }
     }

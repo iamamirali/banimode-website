@@ -32,9 +32,17 @@ export class FooterComponent implements OnInit {
     'فرصت های شغلی',
   ]
 
+  moreLessBtn : string = 'بیشتر بخوانید'
+  showMore : boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onReadMoreClick() {
+    this.moreLessBtn == 'بیشتر بخوانید' ? this.moreLessBtn = 'کمتر' : this.moreLessBtn = 'بیشتر بخوانید'
+    this.showMore = !this.showMore
   }
 
 }
