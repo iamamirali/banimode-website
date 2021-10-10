@@ -1,0 +1,9 @@
+<div class="top-banner-container">
+    <div class="slider-container">
+        <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig'>
+            <div ngxSlickItem *ngFor='let slide of slides' class="slide">
+                <img src="{{ slide }}" alt="" class="slick-img" width="100%">
+            </div>
+        </ngx-slick-carousel>
+    </div>
+</div>

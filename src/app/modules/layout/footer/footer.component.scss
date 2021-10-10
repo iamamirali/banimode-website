@@ -2,7 +2,6 @@
 @import 'mixins';
 
 footer {
-    margin-top: 100px;
     background-color: white;
     width: 100%;
     font-family: 'iranyekan';
@@ -205,8 +204,11 @@ footer {
             direction: ltr;
             
             .copyright-content-en {
-                font-size: 0.8rem;
-                font-family: 'iranyekan-extra-bold';
+                font: {
+                    size: 0.75rem;
+                    family: tahoma;
+                    weight: bold;
+                }
             }
             .copyright-content-fa {
                 font-size: 0.75rem;

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataProccessService } from 'src/app/services/data-proccess.service';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +7,9 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dataFetch : DataProccessService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.dataFetch.getData().subscribe((data) => {
-      console.log(data);
-      
-    })
   }
 
 }

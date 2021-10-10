@@ -5,9 +5,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  bannerSlideConfig = {
-    'slidesToShow': 1, 
-    'slidesToScroll': 1
-  }
-
 }
