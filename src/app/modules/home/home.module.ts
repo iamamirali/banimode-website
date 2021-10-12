@@ -5,13 +5,15 @@ import { TopBannerComponent } from './top-banner/top-banner.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeRoutingModule } from './home-routing-module';
+import { HomeFlashSalesComponent } from './home-flash-sales/home-flash-sales.component';
 
 
 
 @NgModule({
   declarations: [
     HomeComponentComponent,
-    TopBannerComponent
+    TopBannerComponent,
+    HomeFlashSalesComponent
   ],
   imports: [
     CommonModule,

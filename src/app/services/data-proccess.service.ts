@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FlashSalesRootObject } from '../models/flash-sales.model';
+import { environment } from 'src/environments/environment';
 
+const baseURL:string = environment.baseURL
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +12,11 @@ export class DataProccessService {
 
   constructor(private http : HttpClient) { }
 
-  getData() : Observable<FlashSalesRootObject> {
-    return this.http.get<FlashSalesRootObject>('https://mobapi.banimode.com/api/v1/products/suggestion?platform=desktop')
+  
+  getFlashSales() : Observable<FlashSalesRootObject> {
+    let params = new HttpParams().set('platform','desktop');
+    const data = this.http.get<FlashSalesRootObject>(`${baseURL}/v1/products/flash-sales`, {params})
+    console.log(data);
+    return data
   }
 }
