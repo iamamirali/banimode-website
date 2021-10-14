@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Datum } from 'src/app/models/flash-sales.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
   styleUrls: ['./home-flash-sales.component.scss']
 })
 export class HomeFlashSalesComponent implements OnInit, OnDestroy {
+  flashSales : Datum[] = []
+  
   interval: any;
   hasTimeLeft : boolean = true
   timeLeft : number = 0
@@ -14,6 +17,18 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
   hour: number | undefined
   minute: number | undefined
   second: number | undefined
+
+  bannerSlideConfig = {
+    "slidesToShow": 4,
+    "slidesToScroll": 1,
+    "arrows": true,
+    "nextArrow": '<div style=\'position: absolute; top: 45%; right: 50px; z-index: 10; cursor: pointer; font-size: 3.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
+    "prevArrow": '<div style=\'position: absolute; top: 45%; left: 50px; z-index: 10; cursor: pointer; font-size: 3.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
+    "autoplay": false,
+    "autoplaySpeed": 5000,
+    "infinite": true,
+    "rtl": true,
+  }
   
   constructor(private fetchData : DataProccessService) { }
 
@@ -24,13 +39,13 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
   
   getFlashSales() {
     this.fetchData.getFlashSales().subscribe((data)=> {
-      console.log(data.data)
+      this.flashSales = data.data.data
+      console.log(this.flashSales);
+      
       
       this.timeLeft = data.data.timer
       const countDownDate : number = new Date().getTime() + this.timeLeft;
-
       this.timeLeft ? this.hasTimeLeft = true : this.hasTimeLeft = false
-
       this.interval = setInterval(()=> {
         this.countDownTimer(countDownDate);
       }, 1000);

@@ -1,10 +1,11 @@
 @import 'variables';
 
 .flash-sales-container {
-  max-width: 1200px;
   margin: 24px auto;
   
   .flash-sales-header {
+    max-width: 1200px;
+    margin: 0px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,6 +52,119 @@
           }
         }
         
+      }
+
+      .countdown-expired{
+        margin-top: 9px;
+        color: $tomatoRed;
+      }
+    }
+  }
+
+  .flash-sales-slider {
+    max-width: 1250px;
+    margin: auto;
+    width: 100%;
+    
+    .product-card{
+      .product-img-container {
+        padding: 24px;
+        margin-top: 36px;
+        
+        .product-img {
+          cursor: pointer;
+          width: 100%;
+          height: 325px;
+          background: {
+            blend-mode: multiply;
+            repeat: no-repeat;
+            color: $milky;
+            // size: cover;
+            position: center;
+          }
+          border-radius: 8px;
+          box-shadow: 0px 0px 4px $tomatoRed inset;
+        }
+      }
+
+      .product-content {
+        margin: {
+          right: 24px;
+          bottom: 24px;
+        }
+        width: 85%;
+
+        .product-row1 {
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 18px;
+
+          .product-main-price {
+            position: relative;
+            font-size: 0.78rem;
+            margin-top: 4px;
+            color: $gray;
+          }
+          .product-main-price::after {
+            content: '';
+            height: 1px;
+            top: 7px;
+            left: 0;
+            width: 100%;
+            background-color: $gray;
+            position: absolute;
+          }
+        }
+
+        .product-row2 {
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+
+          .product-name {
+            overflow: hidden;
+            color: $gray;
+            font-size: 0.8rem;
+            width: 60%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .product-price {
+            color: $tomatoRed;
+            font-size: 0.8rem;
+            font-family: 'iranyekan-extra-bold';
+          }
+        }
+
+        .product-row3 {
+          cursor: pointer;
+          display: flex;
+
+          div {
+            display: flex;
+            justify-content: space-between;
+
+            .size-item{
+              font-size: 0.8rem;
+              color: $darkGray;
+              margin-left: 6px;
+              border: 1px solid $lighterGray;
+              min-width: 18px;
+              text-align: center;
+              padding: 4px 10px;
+              border-radius: 4px;
+            }
+
+            .remained-size-item {
+              @extend .size-item;
+              color: $tomatoRed;
+              direction: ltr;
+            }
+          }
+        }
       }
     }
   }
