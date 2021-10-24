@@ -24,7 +24,10 @@
             <div ngxSlickItem *ngFor='let item of flashSales let i = index' class="slide">
                 <div class="product-card">
                     <div class="product-img-container">
-                        <div style="background-image: url('{{item.images.home_default[0]}}');" alt="" class="product-img"></div>
+                        <div>
+                            <div [style.background-image]="'url('+item.images.large_default[0]+')'" alt="" class="product-img"></div>
+                            <div class="discount-badge">%{{item.product_specific_price.discount_percent}}</div>
+                        </div>
                     </div>
 
                     <div class="product-content">
@@ -56,5 +59,9 @@
                 </div>
             </div>
         </ngx-slick-carousel>
+    </div>
+
+    <div class="btn-container">
+        <button class="btn-show-all">مشاهده همه</button>
     </div>
 </div>

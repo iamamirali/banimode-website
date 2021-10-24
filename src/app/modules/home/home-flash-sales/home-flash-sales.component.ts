@@ -9,7 +9,8 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 })
 export class HomeFlashSalesComponent implements OnInit, OnDestroy {
   flashSales : Datum[] = []
-  
+  productHover : boolean[] = []
+
   interval: any;
   hasTimeLeft : boolean = true
   timeLeft : number = 0
@@ -20,11 +21,11 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
 
   bannerSlideConfig = {
     "slidesToShow": 4,
-    "slidesToScroll": 1,
+    "slidesToScroll": 4,
     "arrows": true,
-    "nextArrow": '<div style=\'position: absolute; top: 45%; right: 50px; z-index: 10; cursor: pointer; font-size: 3.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
-    "prevArrow": '<div style=\'position: absolute; top: 45%; left: 50px; z-index: 10; cursor: pointer; font-size: 3.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
-    "autoplay": false,
+    "nextArrow": '<div style=\'position: absolute; top: 45%; right: -10px; z-index: 10; cursor: pointer; font-size: 2.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
+    "prevArrow": '<div style=\'position: absolute; top: 45%; left: -10px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
+    "autoplay": true,
     "autoplaySpeed": 5000,
     "infinite": true,
     "rtl": true,
