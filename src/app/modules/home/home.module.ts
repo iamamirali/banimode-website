@@ -7,6 +7,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeRoutingModule } from './home-routing-module';
 import { HomeFlashSalesComponent } from './home-flash-sales/home-flash-sales.component';
 import { HomeSuggestionsComponent } from './home-suggestions/home-suggestions.component';
+import { HomeFeaturesComponent } from './home-features/home-features.component';
 
 
 
@@ -15,7 +16,8 @@ import { HomeSuggestionsComponent } from './home-suggestions/home-suggestions.co
     HomeComponentComponent,
     TopBannerComponent,
     HomeFlashSalesComponent,
-    HomeSuggestionsComponent
+    HomeSuggestionsComponent,
+    HomeFeaturesComponent
   ],
   imports: [
     CommonModule,
