@@ -21,7 +21,7 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
 
   bannerSlideConfig = {
     "slidesToShow": 4,
-    "slidesToScroll": 4,
+    "slidesToScroll": 2,
     "arrows": true,
     "nextArrow": '<div style=\'position: absolute; top: 45%; right: -10px; z-index: 10; cursor: pointer; font-size: 2.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
     "prevArrow": '<div style=\'position: absolute; top: 45%; left: -10px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
@@ -41,8 +41,6 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
   getFlashSales() {
     this.fetchData.getFlashSales().subscribe((data)=> {
       this.flashSales = data.data.data
-      console.log(this.flashSales);
-      
       
       this.timeLeft = data.data.timer
       const countDownDate : number = new Date().getTime() + this.timeLeft;

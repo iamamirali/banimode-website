@@ -6,6 +6,7 @@ import { TopBannerComponent } from './top-banner/top-banner.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeRoutingModule } from './home-routing-module';
 import { HomeFlashSalesComponent } from './home-flash-sales/home-flash-sales.component';
+import { HomeSuggestionsComponent } from './home-suggestions/home-suggestions.component';
 
 
 
@@ -13,7 +14,8 @@ import { HomeFlashSalesComponent } from './home-flash-sales/home-flash-sales.com
   declarations: [
     HomeComponentComponent,
     TopBannerComponent,
-    HomeFlashSalesComponent
+    HomeFlashSalesComponent,
+    HomeSuggestionsComponent
   ],
   imports: [
     CommonModule,
