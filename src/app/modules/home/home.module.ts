@@ -8,6 +8,7 @@ import { HomeRoutingModule } from './home-routing-module';
 import { HomeFlashSalesComponent } from './home-flash-sales/home-flash-sales.component';
 import { HomeSuggestionsComponent } from './home-suggestions/home-suggestions.component';
 import { HomeFeaturesComponent } from './home-features/home-features.component';
+import { HomeBrandsComponent } from './home-brands/home-brands.component';
 
 
 
@@ -17,7 +18,8 @@ import { HomeFeaturesComponent } from './home-features/home-features.component';
     TopBannerComponent,
     HomeFlashSalesComponent,
     HomeSuggestionsComponent,
-    HomeFeaturesComponent
+    HomeFeaturesComponent,
+    HomeBrandsComponent
   ],
   imports: [
     CommonModule,

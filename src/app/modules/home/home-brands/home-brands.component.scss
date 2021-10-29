@@ -1,0 +1,42 @@
+@import 'variables';
+
+.home-brands-container {
+    width: 100%;
+    background-color: $lightWhite;
+    padding: 48px 0px;
+
+    .home-brands {
+        max-width: 1200px;
+        text-align: center;
+        margin: auto;
+
+        .brands-title {
+            margin-bottom: 60px;
+            color: $lightBlack;
+            font-size: 1.55rem;
+        }
+
+        .brands-slider {
+            .brand-img {
+                background: white;
+                width: 70%;
+                border-radius: 12px;
+            }
+        }
+
+        .btn-show-brands {
+            margin-top: 36px;
+            background: none;
+            border: 1px solid $lighterGray;
+            padding: 10px 56px;
+            border-radius: 36px;
+            font-size: 1.15rem;
+            color: $green;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-show-brands:hover {
+            border-color: $green;
+        }
+    }
+}

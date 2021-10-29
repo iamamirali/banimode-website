@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FlashSalesRootObject } from '../models/flash-sales.model';
 import { SuggestionsRootObject } from '../models/suggestions.model';
+import { BrandsRootObject } from '../models/brands.model';
 import { environment } from 'src/environments/environment';
 
 const baseURL:string = environment.baseURL
@@ -22,5 +23,9 @@ export class DataProccessService {
   getSuggestions() : Observable<SuggestionsRootObject> {
     let params = new HttpParams().set('platform', 'desktop');
     return this.http.get<SuggestionsRootObject>(`${baseURL}/v1/products/suggestion`, {params})
+  }
+
+  getBrands() : Observable<BrandsRootObject> {
+    return this.http.get<BrandsRootObject>(`${baseURL}/v1/home-brands`)
   }
 }
