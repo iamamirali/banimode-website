@@ -9,6 +9,7 @@ import { HomeFlashSalesComponent } from './home-flash-sales/home-flash-sales.com
 import { HomeSuggestionsComponent } from './home-suggestions/home-suggestions.component';
 import { HomeFeaturesComponent } from './home-features/home-features.component';
 import { HomeBrandsComponent } from './home-brands/home-brands.component';
+import { HomeBanimagComponent } from './home-banimag/home-banimag.component';
 
 
 
@@ -19,7 +20,8 @@ import { HomeBrandsComponent } from './home-brands/home-brands.component';
     HomeFlashSalesComponent,
     HomeSuggestionsComponent,
     HomeFeaturesComponent,
-    HomeBrandsComponent
+    HomeBrandsComponent,
+    HomeBanimagComponent
   ],
   imports: [
     CommonModule,

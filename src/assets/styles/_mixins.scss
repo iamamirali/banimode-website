@@ -26,3 +26,29 @@
     color: $darkGreen;
     border-color: $darkGreen;
 }
+
+@mixin show-all-btn {
+    margin-top: 36px;
+    background: none;
+    border: 1px solid $lighterGray;
+    padding: 11px;
+    width: 270px;
+    border-radius: 36px;
+    font-size: 1.15rem;
+    color: $green;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+@mixin show-all-btn-hover {
+    margin-top: 36px;
+    background: none;
+    border: 1px solid $green;
+    padding: 11px;
+    width: 270px;
+    border-radius: 36px;
+    font-size: 1.15rem;
+    color: $green;
+    cursor: pointer;
+    transition: all 0.2s;
+}

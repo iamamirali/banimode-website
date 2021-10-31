@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 .home-brands-container {
     width: 100%;
@@ -17,26 +18,22 @@
         }
 
         .brands-slider {
-            .brand-img {
-                background: white;
-                width: 70%;
-                border-radius: 12px;
+            .brand-item{
+                cursor: pointer;
+                
+                .brand-img {
+                    background: white;
+                    width: 70%;
+                    border-radius: 12px;
+                }
             }
         }
 
         .btn-show-brands {
-            margin-top: 36px;
-            background: none;
-            border: 1px solid $lighterGray;
-            padding: 10px 56px;
-            border-radius: 36px;
-            font-size: 1.15rem;
-            color: $green;
-            cursor: pointer;
-            transition: all 0.2s;
+            @include show-all-btn;
         }
         .btn-show-brands:hover {
-            border-color: $green;
+            @include show-all-btn-hover;
         }
     }
 }

@@ -1,0 +1,50 @@
+@import 'variables';
+@import 'mixins';
+
+.home-banimag-container {
+    background-color: white;
+    padding: 80px 0px 64px 0px;
+
+    .home-banimag {
+        max-width: 1200px;
+        text-align: center;
+        margin: auto;
+        
+        .banimag-title {
+            color: $lightBlack;
+        }
+
+        .home-banimag-slider {
+            .article-item {
+                margin: 36px 12px 24px 12px;
+                cursor: pointer;
+                
+                img {
+                    width: 100%;
+                }
+                h4{
+                    color: $lightBlack;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin-top: 30px;
+                    transition: all 0.2s;
+                    font-size: 0.95rem;
+                    text-align: right;
+                }
+            }
+            .article-item:hover {
+                h4{
+                    color: $green;
+                }
+            }
+        }
+
+        .btn-banimag-show-all {
+            @include show-all-btn;
+        }
+        .btn-banimag-show-all:hover {
+            @include show-all-btn-hover;
+        }
+    }
+}

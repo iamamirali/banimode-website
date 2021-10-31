@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { FlashSalesRootObject } from '../models/flash-sales.model';
 import { SuggestionsRootObject } from '../models/suggestions.model';
 import { BrandsRootObject } from '../models/brands.model';
+import { HomeBanimagRootObject } from '../models/homeBanimag.model';
 import { environment } from 'src/environments/environment';
 
 const baseURL:string = environment.baseURL
@@ -27,5 +28,9 @@ export class DataProccessService {
 
   getBrands() : Observable<BrandsRootObject> {
     return this.http.get<BrandsRootObject>(`${baseURL}/v1/home-brands`)
+  }
+
+  getHomeBanimag() : Observable<HomeBanimagRootObject> {
+    return this.http.get<HomeBanimagRootObject>(`${baseURL}/v1/blog-post`)
   }
 }
