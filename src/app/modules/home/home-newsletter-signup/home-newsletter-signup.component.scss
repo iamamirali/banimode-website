@@ -1,0 +1,78 @@
+@import "variables";
+@import "mixins";
+
+.home-newsletter-container {
+    position: relative;
+    margin: {
+        top: 12px;
+        bottom: 64px;
+    }
+    
+    .home-newsletter{
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+        padding: 70px 0px;
+        background : {
+            image: url("https://www.banimode.com/themes/new/assets/images/newsletter.svg");
+            color: $lightWhite;
+            repeat: no-repeat;
+        }
+
+        h2 {
+            color: $lightBlack;
+            margin-bottom: 18px;
+        }
+        p {
+            color: $lightBlack;
+            margin-bottom: 28px;
+        }
+    }
+
+    .newsletter-input-container {
+        background-color: white;
+        padding: 12px 16px;
+        position: absolute;
+        margin: auto;
+        bottom: -30px;
+        right: 0%;
+        left: 0%;
+        display: flex;
+        justify-content: space-between;
+        width: 45%;
+        border-radius: 40px;
+        
+        input {
+            background-color: $darkWhite;
+            border-style: none;
+            border-radius: 36px;
+            padding: 16px 10px;
+            width: 70%;
+            font-size: 1rem;
+            color: $gray;
+        }
+        input:focus {
+            outline: none
+        }
+        .btn-send {
+            @include green-btn;
+            display: flex;
+            justify-content: space-between;
+            width: 23%;
+            cursor: pointer;
+            padding: 16px 20px;
+            position: relative;
+            font-size: 16px;
+
+            i {
+                position: absolute;
+                top: 18px;
+                left: 23px;
+                font-size: 1.3rem;
+            }
+        }
+        .btn-send:hover {
+            background-color: $darkGreen;
+        }
+    }
+}

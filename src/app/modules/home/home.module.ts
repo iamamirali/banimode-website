@@ -10,6 +10,7 @@ import { HomeSuggestionsComponent } from './home-suggestions/home-suggestions.co
 import { HomeFeaturesComponent } from './home-features/home-features.component';
 import { HomeBrandsComponent } from './home-brands/home-brands.component';
 import { HomeBanimagComponent } from './home-banimag/home-banimag.component';
+import { HomeNewsletterSignupComponent } from './home-newsletter-signup/home-newsletter-signup.component';
 
 
 
@@ -21,7 +22,8 @@ import { HomeBanimagComponent } from './home-banimag/home-banimag.component';
     HomeSuggestionsComponent,
     HomeFeaturesComponent,
     HomeBrandsComponent,
-    HomeBanimagComponent
+    HomeBanimagComponent,
+    HomeNewsletterSignupComponent
   ],
   imports: [
     CommonModule,
