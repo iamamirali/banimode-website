@@ -1,0 +1,25 @@
+.home-category {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1225px;
+    margin: 90px auto 0px auto;
+    text-align: center;
+
+    .category-item {
+        margin: 0px 16px;
+        border-radius: 8px;
+        overflow: hidden;
+        
+        a {
+            img {
+                width: 100%;
+                border-radius: 8px;
+                transition: transform 0.5s ease-out, filter 0.2s;
+            }
+            img:hover {
+                transform: scale(1.1);
+                filter: brightness(90%);
+            }
+        }
+    }
+}
