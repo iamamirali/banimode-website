@@ -6,11 +6,13 @@ import { SuggestionsRootObject } from '../models/suggestions.model';
 import { BrandsRootObject } from '../models/brands.model';
 import { HomeBanimagRootObject } from '../models/homeBanimag.model';
 import { environment } from 'src/environments/environment';
+import { IPhoneNumber, PhoneResponseRootObject } from '../models/phoneNumber.model';
 
 const baseURL:string = environment.baseURL
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataProccessService {
 
   constructor(private http : HttpClient) { }
@@ -32,5 +34,9 @@ export class DataProccessService {
 
   getHomeBanimag() : Observable<HomeBanimagRootObject> {
     return this.http.get<HomeBanimagRootObject>(`${baseURL}/v1/blog-post`)
+  }
+
+  sendPhoneNumber(phone: IPhoneNumber) : Observable<IPhoneNumber> {
+    return this.http.post<IPhoneNumber>(`${baseURL}/v2/auth/request`, phone)
   }
 }

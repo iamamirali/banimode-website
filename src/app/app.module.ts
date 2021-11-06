@@ -12,10 +12,15 @@ import { AngularMaterialModule } from './modules/angular-material/angular-materi
 import { LayoutModule } from './modules/layout/layout.module';
 import { HomeModule } from './modules/home/home.module';
 import { DataInterceptorInterceptor } from './services/data-interceptor.interceptor';
+import { SharedModule } from './modules/shared/shared.module';
+import { LoginBoxComponent } from './modules/shared/login-box/login-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+  ],
+  entryComponents: [
+    LoginBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import { DataInterceptorInterceptor } from './services/data-interceptor.intercep
     HttpClientModule,
     LayoutModule,
     HomeModule,
+    SharedModule,
     SlickCarouselModule
   ],
   providers: [

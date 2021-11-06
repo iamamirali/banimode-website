@@ -1,0 +1,151 @@
+@import 'variables';
+@import 'mixins';
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    border-radius: 6px !important;
+}
+::ng-deep  .mat-checkbox-inner-container {
+    margin-right: 0px !important;
+    margin-left: 8px !important;
+}
+::ng-deep  .mat-checkbox-frame {
+    border-radius: 5px !important;
+    background-color: $green !important;
+    border-style: none !important;
+}
+::ng-deep .mat-dialog-content {
+    overflow-y: hidden !important;
+    max-height: 100vh !important;
+}
+::ng-deep .mat-dialog-actions {
+    min-height: 48px !important;
+}
+::ng-deep .mat-dialog-container {
+    border-radius: 14px;
+}
+
+.login-box-container {
+    width: 38vw;
+    border-radius: 1px;
+    position: relative;
+    direction: rtl;
+
+    .btn-close {
+        position: absolute;
+        font-size: 1.5rem;
+        top: 4px;
+        left: 12px;
+        background: none;
+        border-style: none;
+        color: $gray;
+        transition: color 0.2s;
+        cursor: pointer;
+    }
+    .btn-close:hover {
+        color: $darkGray;
+    }
+
+    .login-box-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        
+        .login-title {
+            text-align: center;
+            margin-bottom: 28px;
+            color: $lightBlack;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            margin-bottom: 24px;
+            color: $gray;
+        }
+
+        .login-input-container {
+            width: 100%;
+            margin: auto;
+            margin-bottom: 12px;
+            position: relative;
+
+            ::placeholder {
+                color: $lightGray;
+            }
+            
+            .login-number-input {
+                width: 65%;
+                padding: 16px 64px 16px 12px;
+                font-size: 16px;
+                border: {
+                    radius: 12px;
+                    color: $lightGray;
+                    style: solid;
+                    width: 1px;
+                }
+                text-align: right;
+                transition: border-color 0.3s;
+            }
+            .login-number-input:focus {
+                outline: none;
+            }
+
+            .avatar-icon {
+                position: absolute;
+                top: 15px;
+                right: 75px;
+                color: $lighterGray;
+                font-size: 1.5rem;
+            }
+
+            .input-error {
+                font-size: 12px;
+                margin : {
+                    top: 5px;
+                    right: 55px;
+                }
+                color: red;
+                text-align: right;
+                transition: opacity 0.3s;
+            }
+        }
+
+        .btn-continue {
+            @include green-btn;
+            padding: {
+                top: 20px;
+                bottom: 20px;
+            }
+            width: 80%;
+            border-radius: 12px;
+            margin: 0px auto 24px auto;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-continue:hover {
+            background-color: $darkGreen
+        }
+
+        .policy-container {
+            margin-bottom: 48px;
+            direction: rtl;
+            
+            .policy-checkbox {
+                color: $darkGray;
+                width: 75%;
+                font: {
+                    family: 'iranyekan';
+                    size: 0.75rem;
+                }
+                transition: all 0.2s;
+                
+                a {
+                    color: $darkGray;
+                    font-family: 'iranyekan-bold';
+                    text-decoration: underline;
+                    transition: all 0.2s;
+                }
+            }
+        }
+    }
+}

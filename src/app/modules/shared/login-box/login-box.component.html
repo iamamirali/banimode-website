@@ -1,0 +1,27 @@
+<div class="login-box-container">
+    <mat-dialog-actions>
+        <button mat-dialog-close class="btn-close"><i class="fas fa-times"></i></button>
+    </mat-dialog-actions>
+
+        <mat-dialog-content class="login-box-content">
+            <h2 class="login-title">ورود یا ثبت نام</h2>
+
+            <p class="login-subtitle">لطفا برای ادامه شماره همراه خود را وارد نمایید.</p>
+
+            <div class="login-input-container">
+                <input type="tel" name="" id="" [(ngModel)]='phoneInput' class="login-number-input" placeholder="شماره همراه" maxlength="11" [style.border-color]="isBtnClicked ? (!phoneInput || phoneError || phoneInput.length < 11) ? 'red' : '#b9b9b9' : null">
+                <i class="far fa-user-circle avatar-icon"></i>
+
+                <p class="input-error" *ngIf='!phoneError' [style.opacity]='(!phoneInput && isBtnClicked) || (phoneInput.length < 11 && isBtnClicked) ? 1 : 0'>شماره موبایل به درستی وارد نشده است!</p>
+
+                <p class="input-error" *ngIf='phoneError' [style.opacity]='(phoneError && isBtnClicked) ? 1 : 0'>{{phoneError}}</p>
+            </div>
+
+            <button (click)='onBtnClick()' class="btn-continue">ادامه</button>
+
+            <div class="policy-container">
+                <mat-checkbox class="policy-checkbox" [(ngModel)]='policyChecked' [style.color]="isBtnClicked ? policyChecked ? '#444444' : 'red' : null">
+                    <a href="" [style.color]="isBtnClicked ? policyChecked ? '#444444' : 'red' : null">شرایط و قوانین</a> استفاده از سرویس های سایت بانی‌مد را می پذیرم .</mat-checkbox>
+            </div>
+        </mat-dialog-content>
+</div>

@@ -11,6 +11,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule} from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -42,6 +43,7 @@ const materialModules = [
   MatCheckboxModule,
   MatChipsModule,
   MatDividerModule,
+  MatDialogModule,
   MatExpansionModule,
   MatIconModule,
   MatInputModule,
