@@ -10,6 +10,7 @@ export class LoginBoxComponent implements OnInit {
   policyChecked : boolean = true;
   phoneInput : string = ''
   showPhoneSection : boolean = true;
+  // showAuthCodeSection : boolean = false;
   phoneError : string = ''
   isBtnClicked : boolean = false;
 
@@ -26,7 +27,7 @@ export class LoginBoxComponent implements OnInit {
     this.isBtnClicked = true
     if(this.phoneInput.length >= 11 && this.policyChecked) {
       this.dataFetch.sendPhoneNumber(phoneNumber).subscribe((data) => {
-        console.log(data);
+        this.showPhoneSection = false
         this.phoneError = ''
       }, (error) => {
         this.phoneError = error

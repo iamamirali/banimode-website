@@ -3,7 +3,7 @@
         <button mat-dialog-close class="btn-close"><i class="fas fa-times"></i></button>
     </mat-dialog-actions>
 
-        <mat-dialog-content class="login-box-content">
+        <mat-dialog-content *ngIf='showPhoneSection' class="login-box-content">
             <h2 class="login-title">ورود یا ثبت نام</h2>
 
             <p class="login-subtitle">لطفا برای ادامه شماره همراه خود را وارد نمایید.</p>
@@ -24,4 +24,5 @@
                     <a href="" [style.color]="isBtnClicked ? policyChecked ? '#444444' : 'red' : null">شرایط و قوانین</a> استفاده از سرویس های سایت بانی‌مد را می پذیرم .</mat-checkbox>
             </div>
         </mat-dialog-content>
+
 </div>
