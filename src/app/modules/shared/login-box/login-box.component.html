@@ -25,4 +25,22 @@
             </div>
         </mat-dialog-content>
 
+        <mat-dialog-content *ngIf='!showPhoneSection' class="login-box-content">
+            <h3 class="login-title">ورود به بانی‌مد</h3>
+            <p class="login-subtitle">کد تایید ۵ رقمی ارسال شده به شماره همراه زیر را وارد نمایید.</p>
+
+            <div class="phone-row">
+                <p class="phone-number">{{phoneInput}}</p>
+                <button class="btn-edit-phone"> <i class="far fa-edit"></i>ویرایش شماره</button>
+            </div>
+
+            <div class="verif-code-container">
+                <ng-otp-input (onInputChange)="onOtpChange($event)"  [config]="{length:5, inputStyles:{'border-radius':'12px','width':'65px', 'height':'60px', 'font-size':'24px', 'margin':'12px 10px'}}"></ng-otp-input>
+            </div>
+
+            <div class="resend-container">
+                <div class="remained-time-container"></div>
+                <button class="btn-resend-code"> <i class="fas fa-sync"></i> ارسال مجدد</button>
+            </div>
+        </mat-dialog-content>
 </div>

@@ -85,10 +85,14 @@
                 }
                 text-align: right;
                 transition: border-color 0.3s;
+
+                :focus {
+                    outline: none;
+                }
             }
-            .login-number-input:focus {
-                outline: none;
-            }
+            // .login-number-input:focus {
+            //     outline: none;
+            // }
 
             .avatar-icon {
                 position: absolute;
@@ -144,6 +148,22 @@
                     font-family: 'iranyekan-bold';
                     text-decoration: underline;
                     transition: all 0.2s;
+                }
+            }
+        }
+
+        .verif-code-container {
+            direction: ltr;
+        }
+
+        .resend-container {
+            .btn-resend-code {
+                @extend .btn-continue;
+                font-size: 1.2rem;
+
+                i {
+                    margin-left: 8px;
+                    font-size: 2rem;
                 }
             }
         }

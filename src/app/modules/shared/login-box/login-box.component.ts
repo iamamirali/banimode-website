@@ -9,8 +9,7 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 export class LoginBoxComponent implements OnInit {
   policyChecked : boolean = true;
   phoneInput : string = ''
-  showPhoneSection : boolean = true;
-  // showAuthCodeSection : boolean = false;
+  showPhoneSection : boolean = false;
   phoneError : string = ''
   isBtnClicked : boolean = false;
 
@@ -33,5 +32,9 @@ export class LoginBoxComponent implements OnInit {
         this.phoneError = error
       })
     }
+  }
+
+  onOtpChange(event:string) {
+    console.log(event);
   }
 }
