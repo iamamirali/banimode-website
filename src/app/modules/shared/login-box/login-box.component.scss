@@ -85,14 +85,10 @@
                 }
                 text-align: right;
                 transition: border-color 0.3s;
-
-                :focus {
-                    outline: none;
-                }
             }
-            // .login-number-input:focus {
-            //     outline: none;
-            // }
+            .login-number-input:focus {
+                outline: none;
+            }
 
             .avatar-icon {
                 position: absolute;
@@ -152,18 +148,55 @@
             }
         }
 
+        .phone-row {
+            display: flex;
+            justify-content: space-between;
+            width: 58%;
+            margin: -12px auto 24px auto;
+            
+            .phone-number {
+                font-size: 16px;
+                margin-top: 3px;
+                font-family: 'iranyekan-bold';
+            }
+
+            .btn-edit-phone {
+                border-style: none;
+                background: none;
+                color: $green;
+                font-size: 16px;
+                
+                i {
+                    margin-left: 8px;
+                }
+            }
+        }
+
         .verif-code-container {
             direction: ltr;
+            margin-bottom: 28px
         }
 
         .resend-container {
             .btn-resend-code {
                 @extend .btn-continue;
-                font-size: 1.2rem;
+                font: {
+                    size: 1.05rem;
+                    family: 'iranyekan-bold';
+                }
+                position: relative;
+                margin-bottom: 30px;
+                cursor: pointer;
+
+                span {
+                    margin-right: 50px;
+                }
 
                 i {
-                    margin-left: 8px;
-                    font-size: 2rem;
+                    position: absolute;
+                    right: 33%;
+                    top: 33%;
+                    font-size: 24px;
                 }
             }
         }

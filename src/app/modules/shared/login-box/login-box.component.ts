@@ -9,21 +9,21 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 export class LoginBoxComponent implements OnInit {
   policyChecked : boolean = true;
   phoneInput : string = ''
-  showPhoneSection : boolean = false;
+  showPhoneSection : boolean = true;
   phoneError : string = ''
-  isBtnClicked : boolean = false;
+  isNextBtnClicked : boolean = false;
 
   constructor(private dataFetch : DataProccessService) { }
 
   ngOnInit(): void {
   }
 
-  onBtnClick() {
+  onNextBtnClick() {
     const phoneNumber = {
       phone: this.phoneInput
     }
     
-    this.isBtnClicked = true
+    this.isNextBtnClicked = true
     if(this.phoneInput.length >= 11 && this.policyChecked) {
       this.dataFetch.sendPhoneNumber(phoneNumber).subscribe((data) => {
         this.showPhoneSection = false
@@ -33,6 +33,26 @@ export class LoginBoxComponent implements OnInit {
       })
     }
   }
+
+  onEditPhoneClick() {
+    this.showPhoneSection = true
+    this.phoneInput = ''
+    this.isNextBtnClicked = false
+  }
+
+  onResendCodeClick() {
+    const phoneNumber = {
+      phone: this.phoneInput
+    }
+    
+    this.dataFetch.sendPhoneNumber(phoneNumber).subscribe()
+    console.log('hello');
+    
+  }
+
+  // verifCodeTimer() {
+  //   setInterval
+  // }
 
   onOtpChange(event:string) {
     console.log(event);

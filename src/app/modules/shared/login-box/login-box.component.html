@@ -9,19 +9,19 @@
             <p class="login-subtitle">لطفا برای ادامه شماره همراه خود را وارد نمایید.</p>
 
             <div class="login-input-container">
-                <input type="tel" name="" id="" [(ngModel)]='phoneInput' class="login-number-input" placeholder="شماره همراه" maxlength="11" [style.border-color]="isBtnClicked ? (!phoneInput || phoneError || phoneInput.length < 11) ? 'red' : '#b9b9b9' : null">
+                <input type="tel" name="" id="" [(ngModel)]='phoneInput' class="login-number-input" placeholder="شماره همراه" maxlength="11" [style.border-color]="isNextBtnClicked ? (!phoneInput || phoneError || phoneInput.length < 11) ? 'red' : '#b9b9b9' : null">
                 <i class="far fa-user-circle avatar-icon"></i>
 
-                <p class="input-error" *ngIf='!phoneError' [style.opacity]='(!phoneInput && isBtnClicked) || (phoneInput.length < 11 && isBtnClicked) ? 1 : 0'>شماره موبایل به درستی وارد نشده است!</p>
+                <p class="input-error" *ngIf='!phoneError' [style.opacity]='(!phoneInput && isNextBtnClicked) || (phoneInput.length < 11 && isNextBtnClicked) ? 1 : 0'>شماره موبایل به درستی وارد نشده است!</p>
 
-                <p class="input-error" *ngIf='phoneError' [style.opacity]='(phoneError && isBtnClicked) ? 1 : 0'>{{phoneError}}</p>
+                <p class="input-error" *ngIf='phoneError' [style.opacity]='(phoneError && isNextBtnClicked) ? 1 : 0'>{{phoneError}}</p>
             </div>
 
-            <button (click)='onBtnClick()' class="btn-continue">ادامه</button>
+            <button (click)='onNextBtnClick()' class="btn-continue">ادامه</button>
 
             <div class="policy-container">
-                <mat-checkbox class="policy-checkbox" [(ngModel)]='policyChecked' [style.color]="isBtnClicked ? policyChecked ? '#444444' : 'red' : null">
-                    <a href="" [style.color]="isBtnClicked ? policyChecked ? '#444444' : 'red' : null">شرایط و قوانین</a> استفاده از سرویس های سایت بانی‌مد را می پذیرم .</mat-checkbox>
+                <mat-checkbox class="policy-checkbox" [(ngModel)]='policyChecked' [style.color]="isNextBtnClicked ? policyChecked ? '#444444' : 'red' : null">
+                    <a href="" [style.color]="isNextBtnClicked ? policyChecked ? '#444444' : 'red' : null">شرایط و قوانین</a> استفاده از سرویس های سایت بانی‌مد را می پذیرم .</mat-checkbox>
             </div>
         </mat-dialog-content>
 
@@ -30,8 +30,8 @@
             <p class="login-subtitle">کد تایید ۵ رقمی ارسال شده به شماره همراه زیر را وارد نمایید.</p>
 
             <div class="phone-row">
-                <p class="phone-number">{{phoneInput}}</p>
-                <button class="btn-edit-phone"> <i class="far fa-edit"></i>ویرایش شماره</button>
+                <p class="phone-number">09330481983</p>
+                <button class="btn-edit-phone" (click)='onEditPhoneClick()'> <i class="far fa-edit"></i> <span>ویرایش شماره</span></button>
             </div>
 
             <div class="verif-code-container">
@@ -40,7 +40,7 @@
 
             <div class="resend-container">
                 <div class="remained-time-container"></div>
-                <button class="btn-resend-code"> <i class="fas fa-sync"></i> ارسال مجدد</button>
+                <button class="btn-resend-code" (click)='onResendCodeClick()'> <i class="fas fa-sync"></i> <span>ارسال مجدد</span></button>
             </div>
         </mat-dialog-content>
 </div>
