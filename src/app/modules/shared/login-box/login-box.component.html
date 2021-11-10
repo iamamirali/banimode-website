@@ -39,8 +39,11 @@
             </div>
 
             <div class="resend-container">
-                <div class="remained-time-container"></div>
-                <button class="btn-resend-code" (click)='onResendCodeClick()'> <i class="fas fa-sync"></i> <span>ارسال مجدد</span></button>
+                <div *ngIf='totalTime' class="remained-time-container">
+                    <p><span>دقیقه</span> {{verifTimer}}</p>
+                </div>
+
+                <button *ngIf='!totalTime' class="btn-resend-code" (click)='onResendCodeClick()'> <i class="fas fa-sync"></i> <span>ارسال مجدد</span></button>
             </div>
         </mat-dialog-content>
 </div>

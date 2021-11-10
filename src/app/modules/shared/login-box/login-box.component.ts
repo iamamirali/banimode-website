@@ -13,6 +13,9 @@ export class LoginBoxComponent implements OnInit {
   phoneError : string = ''
   isNextBtnClicked : boolean = false;
 
+  totalTime : number = 120;
+  verifTimer : string = '02 : 00'
+
   constructor(private dataFetch : DataProccessService) { }
 
   ngOnInit(): void {
@@ -28,6 +31,7 @@ export class LoginBoxComponent implements OnInit {
       this.dataFetch.sendPhoneNumber(phoneNumber).subscribe((data) => {
         this.showPhoneSection = false
         this.phoneError = ''
+        this.verifCodeTimer()
       }, (error) => {
         this.phoneError = error
       })
@@ -50,9 +54,32 @@ export class LoginBoxComponent implements OnInit {
     
   }
 
-  // verifCodeTimer() {
-  //   setInterval
-  // }
+  verifCodeTimer() {
+    let minute = '00';
+    let second = '00';
+    
+    let timerInterval : NodeJS.Timeout = setInterval(() => {
+      if(this.totalTime > 0) {
+        this.totalTime--
+        minute = `0${Math.floor(this.totalTime / 60)}`
+        second = `${Math.floor(this.totalTime % 60)}`
+
+        if(+second < 10) {
+          second = `0${Math.floor(this.totalTime % 60)}`
+        }
+      } else {
+        this.timerStopper(timerInterval)
+      }
+      this.verifTimer = `${minute} : ${second}`
+      console.log('total time: ' + this.totalTime);
+      console.log('min: ' + minute);
+      console.log('sec: ' + Math.floor(this.totalTime % 60));
+    },1000)
+  }
+
+  timerStopper(timer : NodeJS.Timeout) {
+    clearInterval(timer)
+  }
 
   onOtpChange(event:string) {
     console.log(event);

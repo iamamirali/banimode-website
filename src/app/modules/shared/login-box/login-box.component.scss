@@ -178,6 +178,26 @@
         }
 
         .resend-container {
+            direction: ltr;
+            margin-bottom: 36px;
+            
+            .remained-time-container {
+                padding: 18px;
+                background-color: $milky;
+                color: $darkGray;
+                border-radius: 12px;
+                margin: auto;
+                width: 75%;
+
+                p {
+                    font-size: 1.1rem;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 30%;
+                    margin: auto;
+                }
+            }
+            
             .btn-resend-code {
                 @extend .btn-continue;
                 font: {
