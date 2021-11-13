@@ -13,6 +13,7 @@
     background-color: $green !important;
     border-style: none !important;
 }
+
 ::ng-deep .mat-dialog-content {
     overflow-y: hidden !important;
     max-height: 100vh !important;
@@ -22,6 +23,19 @@
 }
 ::ng-deep .mat-dialog-container {
     border-radius: 14px;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: $darkGray;
+}
+::ng-deep .mat-spinner svg {
+    width: 18px !important;
+    height: 18px !important; 
+}
+::ng-deep .mat-spinner {
+    width: 20px !important;
+    height: 20px !important; 
+    margin-top: 3px !important;
 }
 
 .login-box-container {
@@ -193,8 +207,9 @@
                     font-size: 1.1rem;
                     display: flex;
                     justify-content: space-between;
-                    width: 30%;
+                    width: 45%;
                     margin: auto;
+                    padding: 4px 0px
                 }
             }
             

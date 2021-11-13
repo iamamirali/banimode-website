@@ -30,20 +30,20 @@
             <p class="login-subtitle">کد تایید ۵ رقمی ارسال شده به شماره همراه زیر را وارد نمایید.</p>
 
             <div class="phone-row">
-                <p class="phone-number">09330481983</p>
+                <p class="phone-number">{{phoneInput}}<p>
                 <button class="btn-edit-phone" (click)='onEditPhoneClick()'> <i class="far fa-edit"></i> <span>ویرایش شماره</span></button>
             </div>
 
             <div class="verif-code-container">
-                <ng-otp-input (onInputChange)="onOtpChange($event)"  [config]="{length:5, inputStyles:{'border-radius':'12px','width':'65px', 'height':'60px', 'font-size':'24px', 'margin':'12px 10px'}}"></ng-otp-input>
+                <ng-otp-input (onInputChange)="onVerifChange($event)"  [config]="{length:5, inputStyles:{'border-radius':'12px','width':'65px', 'height':'60px', 'font-size':'24px', 'margin':'12px 10px'}}"></ng-otp-input>
             </div>
 
             <div class="resend-container">
-                <div *ngIf='totalTime' class="remained-time-container">
-                    <p><span>دقیقه</span> {{verifTimer}}</p>
+                <div *ngIf="totalTime" class="remained-time-container">
+                    <p><span>دقیقه</span> {{verifTimer}} <mat-spinner></mat-spinner></p>
                 </div>
 
-                <button *ngIf='!totalTime' class="btn-resend-code" (click)='onResendCodeClick()'> <i class="fas fa-sync"></i> <span>ارسال مجدد</span></button>
+                <button *ngIf="!totalTime" class="btn-resend-code" (click)='onResendCodeClick()'> <i class="fas fa-sync"></i> <span>ارسال مجدد</span></button>
             </div>
         </mat-dialog-content>
 </div>

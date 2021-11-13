@@ -6,7 +6,8 @@ import { SuggestionsRootObject } from '../models/suggestions.model';
 import { BrandsRootObject } from '../models/brands.model';
 import { HomeBanimagRootObject } from '../models/homeBanimag.model';
 import { environment } from 'src/environments/environment';
-import { IPhoneNumber, PhoneResponseRootObject } from '../models/phoneNumber.model';
+import { IPhoneNumber} from '../models/phoneNumber.model';
+import { IVerifCode } from '../models/verifCode.model';
 
 const baseURL:string = environment.baseURL
 @Injectable({
@@ -38,5 +39,9 @@ export class DataProccessService {
 
   sendPhoneNumber(phone: IPhoneNumber) : Observable<IPhoneNumber> {
     return this.http.post<IPhoneNumber>(`${baseURL}/v2/auth/request`, phone)
+  }
+
+  sendVerifCode(code: IVerifCode) : Observable<IVerifCode> {
+    return this.http.post<IVerifCode>(`${baseURL}/v2/auth`, code)
   }
 }

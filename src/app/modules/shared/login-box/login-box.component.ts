@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { timeInterval } from 'rxjs/operators';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 
 @Component({
@@ -13,8 +14,11 @@ export class LoginBoxComponent implements OnInit {
   phoneError : string = ''
   isNextBtnClicked : boolean = false;
 
+  timerInterval : NodeJS.Timeout | undefined
   totalTime : number = 120;
   verifTimer : string = '02 : 00'
+  minute : string = '00';
+  second : string = '00';
 
   constructor(private dataFetch : DataProccessService) { }
 
@@ -42,46 +46,56 @@ export class LoginBoxComponent implements OnInit {
     this.showPhoneSection = true
     this.phoneInput = ''
     this.isNextBtnClicked = false
+    this.totalTime = 120
+    this.timerStopper()
+    this.verifTimer = '02 : 00'
   }
 
   onResendCodeClick() {
     const phoneNumber = {
       phone: this.phoneInput
     }
+    this.totalTime = 120;
     
-    this.dataFetch.sendPhoneNumber(phoneNumber).subscribe()
-    console.log('hello');
-    
+    this.dataFetch.sendPhoneNumber(phoneNumber).subscribe(() => {
+      this.verifCodeTimer()
+    })
   }
 
   verifCodeTimer() {
-    let minute = '00';
-    let second = '00';
-    
-    let timerInterval : NodeJS.Timeout = setInterval(() => {
+    this.timerInterval = setInterval(() => {
       if(this.totalTime > 0) {
         this.totalTime--
-        minute = `0${Math.floor(this.totalTime / 60)}`
-        second = `${Math.floor(this.totalTime % 60)}`
+        this.minute = `0${Math.floor(this.totalTime / 60)}`
+        this.second = `${Math.floor(this.totalTime % 60)}`
 
-        if(+second < 10) {
-          second = `0${Math.floor(this.totalTime % 60)}`
+        if(+this.second < 10) {
+          this.second = `0${Math.floor(this.totalTime % 60)}`
         }
       } else {
-        this.timerStopper(timerInterval)
+        this.timerStopper()
       }
-      this.verifTimer = `${minute} : ${second}`
-      console.log('total time: ' + this.totalTime);
-      console.log('min: ' + minute);
-      console.log('sec: ' + Math.floor(this.totalTime % 60));
+      this.verifTimer = `${this.minute} : ${this.second}`
     },1000)
   }
 
-  timerStopper(timer : NodeJS.Timeout) {
-    clearInterval(timer)
+  timerStopper() {
+    if(this.timerInterval) {
+      clearInterval(this.timerInterval)
+    }
   }
 
-  onOtpChange(event:string) {
-    console.log(event);
+  onVerifChange(event:string) {
+    const verifData = {
+      phone: this.phoneInput,
+      token: event
+    }
+    
+    if(event.length == 5) {
+      this.dataFetch.sendVerifCode(verifData).subscribe(() => {
+      }, (error) => {
+        console.log(error);
+      }) 
+    }
   }
 }
