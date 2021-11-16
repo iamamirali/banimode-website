@@ -35,7 +35,8 @@
             </div>
 
             <div class="verif-code-container">
-                <ng-otp-input (onInputChange)="onVerifChange($event)"  [config]="{length:5, inputStyles:{'border-radius':'12px','width':'65px', 'height':'60px', 'font-size':'24px', 'margin':'12px 10px'}}"></ng-otp-input>
+                <ng-otp-input (onInputChange)="onVerifChange($event)"  [config]="{length:5, inputStyles:{'border-radius':'12px', 'border-color': verifError ? 'red' : '#c5c7cb' ,'width':'65px', 'height':'60px', 'font-size':'24px', 'margin':'12px 10px'}}"></ng-otp-input>
+                <p class="verif-error" [style.opacity]='verifError ? 1 : 0'>{{verifError}}</p>
             </div>
 
             <div class="resend-container">

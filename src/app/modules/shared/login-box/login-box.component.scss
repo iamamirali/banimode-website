@@ -188,7 +188,22 @@
 
         .verif-code-container {
             direction: ltr;
-            margin-bottom: 28px
+            margin-bottom: 28px;
+            position: relative;
+            
+            .verif-error {
+                position: absolute;
+                right: 0;
+                top: 74px;
+                font-size: 12px;
+                margin : {
+                    top: 5px;
+                    right: 55px;
+                }
+                color: red;
+                text-align: right;
+                transition: opacity 0.3s;
+            }
         }
 
         .resend-container {

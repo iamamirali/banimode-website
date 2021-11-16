@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FlashSalesRootObject } from '../models/flash-sales.model';
 import { SuggestionsRootObject } from '../models/suggestions.model';
@@ -8,6 +8,7 @@ import { HomeBanimagRootObject } from '../models/homeBanimag.model';
 import { environment } from 'src/environments/environment';
 import { IPhoneNumber} from '../models/phoneNumber.model';
 import { IVerifCode } from '../models/verifCode.model';
+import { VerifResponseRootObject } from '../models/verifCode.model';
 
 const baseURL:string = environment.baseURL
 @Injectable({
@@ -41,7 +42,10 @@ export class DataProccessService {
     return this.http.post<IPhoneNumber>(`${baseURL}/v2/auth/request`, phone)
   }
 
-  sendVerifCode(code: IVerifCode) : Observable<IVerifCode> {
-    return this.http.post<IVerifCode>(`${baseURL}/v2/auth`, code)
+  sendVerifCode(code: IVerifCode) : Observable<HttpResponse<any>> {
+    return this.http.post<IVerifCode>(`${baseURL}/v2/auth`, code, { observe: 'response' })
+  }
+  getVerifResponse() : Observable<VerifResponseRootObject> {
+    return this.http.get<VerifResponseRootObject>(`${baseURL}/v2/auth`)
   }
 }

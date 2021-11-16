@@ -19,6 +19,7 @@ export class LoginBoxComponent implements OnInit {
   verifTimer : string = '02 : 00'
   minute : string = '00';
   second : string = '00';
+  verifError : string = ''
 
   constructor(private dataFetch : DataProccessService) { }
 
@@ -49,6 +50,7 @@ export class LoginBoxComponent implements OnInit {
     this.totalTime = 120
     this.timerStopper()
     this.verifTimer = '02 : 00'
+    this.verifError = ''
   }
 
   onResendCodeClick() {
@@ -92,9 +94,14 @@ export class LoginBoxComponent implements OnInit {
     }
     
     if(event.length == 5) {
-      this.dataFetch.sendVerifCode(verifData).subscribe(() => {
+      this.dataFetch.sendVerifCode(verifData).subscribe((data) => {
+        if(data.body.status == 'error') {
+          this.verifError = data.body.message
+        } else {
+          this.verifError = ''
+        }
       }, (error) => {
-        console.log(error);
+        this.verifError = error
       }) 
     }
   }

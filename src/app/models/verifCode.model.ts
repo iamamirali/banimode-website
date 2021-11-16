@@ -1,4 +1,4 @@
-export interface PhoneResponseRootObject {
+export interface VerifResponseRootObject {
     status: string;
     message: string;
     status_code: number;
