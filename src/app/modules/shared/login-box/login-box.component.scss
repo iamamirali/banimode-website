@@ -73,6 +73,7 @@
 
         .login-subtitle {
             text-align: center;
+            margin: auto;
             margin-bottom: 24px;
             color: $gray;
         }
@@ -104,7 +105,7 @@
                 outline: none;
             }
 
-            .avatar-icon {
+            .right-avatar-icon {
                 position: absolute;
                 top: 15px;
                 right: 75px;
@@ -249,6 +250,93 @@
                     font-size: 24px;
                 }
             }
+        }
+
+        .success-login-img {
+            width: 30%;
+            margin: 0px auto 36px auto;
+        }
+
+        .success-login-title {
+            color: $green;
+            font-size: 1.4rem;
+            margin-bottom: 36px;
+        }
+        
+        .success-subtitle {
+            margin-bottom: 48px;
+            width: 70%;
+        }
+
+        .success-btns {
+            display: flex;
+            justify-content: space-between;
+            width: 75%;
+            margin: 0px auto 36px auto;
+            
+            .btn-home {
+                @include green-btn;
+                border-radius: 12px;
+                padding: 18px 70px;
+                font-size: 16px;
+            }
+            .btn-home:hover {
+                background-color: $darkGreen;
+            }
+            
+            .btn-password {
+                background: none;
+                border: 1px solid $lightGray;
+                padding: 18px 32px;
+                font-size: 16px;
+                border-radius: 12px;
+                transition: all 0.25s;
+            }
+            .btn-password:hover {
+                border-color: $green;
+                color: $green;
+            }
+
+        }
+
+        .pass-container {
+            margin-top: 24px;
+        }
+        .pass-subtitle {
+            color: $lightBlack;
+            width: 80%;
+            text-align: right;
+
+            span {
+                color: $lightGray;
+                font-size: 0.8rem;
+            }
+        }
+        .left-avatar-icon {
+            position: absolute;
+            top: 17px;
+            left: 70px;
+            color: $lighterGray;
+            font-size: 1.4rem;
+        }
+        .pass-error {
+            position: absolute;
+                right: 0;
+                top: 52px;
+                font-size: 12px;
+                margin : {
+                    top: 5px;
+                    right: 55px;
+                }
+                color: red;
+                text-align: right;
+                transition: opacity 0.3s;
+        }
+        .btn-submit-pass {
+            @include green-btn;
+        }
+        .btn-submit-pass:hover {
+            background-color: $darkGreen;
         }
     }
 }

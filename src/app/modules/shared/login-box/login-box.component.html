@@ -3,14 +3,14 @@
         <button mat-dialog-close class="btn-close"><i class="fas fa-times"></i></button>
     </mat-dialog-actions>
 
-        <mat-dialog-content *ngIf='showPhoneSection' class="login-box-content">
+        <mat-dialog-content *ngIf='!showPhoneSection' class="login-box-content">
             <h2 class="login-title">ورود یا ثبت نام</h2>
 
             <p class="login-subtitle">لطفا برای ادامه شماره همراه خود را وارد نمایید.</p>
 
             <div class="login-input-container">
                 <input type="tel" name="" id="" [(ngModel)]='phoneInput' class="login-number-input" placeholder="شماره همراه" maxlength="11" [style.border-color]="isNextBtnClicked ? (!phoneInput || phoneError || phoneInput.length < 11) ? 'red' : '#b9b9b9' : null">
-                <i class="far fa-user-circle avatar-icon"></i>
+                <i class="far fa-user-circle right-avatar-icon"></i>
 
                 <p class="input-error" *ngIf='!phoneError' [style.opacity]='(!phoneInput && isNextBtnClicked) || (phoneInput.length < 11 && isNextBtnClicked) ? 1 : 0'>شماره موبایل به درستی وارد نشده است!</p>
 
@@ -25,7 +25,7 @@
             </div>
         </mat-dialog-content>
 
-        <mat-dialog-content *ngIf='!showPhoneSection' class="login-box-content">
+        <mat-dialog-content *ngIf='!showPhoneSection && !showLoginSuccess' class="login-box-content">
             <h3 class="login-title">ورود به بانی‌مد</h3>
             <p class="login-subtitle">کد تایید ۵ رقمی ارسال شده به شماره همراه زیر را وارد نمایید.</p>
 
@@ -45,6 +45,42 @@
                 </div>
 
                 <button *ngIf="!totalTime" class="btn-resend-code" (click)='onResendCodeClick()'> <i class="fas fa-sync"></i> <span>ارسال مجدد</span></button>
+            </div>
+        </mat-dialog-content>
+
+        <mat-dialog-content *ngIf='showLoginSuccess && !showPassSection' class="login-box-content">
+            <img src="./../../../../assets/icons/success-login.svg" alt="" class="success-login-img">
+            <h3 class="success-login-title">با موفقیت وارد شدید!</h3>
+            <p class="login-subtitle success-subtitle">برای داشتن تجربه خرید بهتر برای حساب شخصی خود کلمه عبور تعیین کنید.</p>
+            <div class="success-btns">
+                <button class="btn-home" mat-dialog-close>ادامه</button>
+                <button class="btn-password" (click)='onSetPassClick()'>تعیین کلمه عبور</button>
+            </div>
+        </mat-dialog-content>
+
+        <mat-dialog-content *ngIf='showPassSection' class="login-box-content">
+            <div class="set-pass-container">
+                <h2 class="login-title">ثبت نام در بانی‌مد</h2>
+                <p class="login-subtitle pass-subtitle">
+                    جهت افزایش امنیت حساب کاربری خود، یک کلمه عبور وارد نمایید.
+                    <span>(کلمه عبور حداقل باید ۶ کارکتر باشد)</span>
+                </p>
+
+                <div class="login-input-container pass-container" >
+                    <input [type]="showPassword ? 'text' : 'password'" [style.border-color]="passError ? 'red' : '#b9b9b9'" class="login-number-input" placeholder="کلمه عبور" [(ngModel)]='password'>
+                    <i class="fa fa-lock right-avatar-icon"></i>
+                    <i class ='far left-avatar-icon' *ngIf='password' [class]="showPassword ? 'fa-eye-slash' : 'fa-eye'" (click)="showPassword = !showPassword"></i>
+                    <p class="pass-error" [style.opacity]='passError ? 1 : 0'>{{passError}}</p>
+                </div>
+
+                <div class="login-input-container pass-container">
+                    <input [type]="showRepassword ? 'text' : 'password'" [style.border-color]="rePassError ? 'red' : '#b9b9b9'" class="login-number-input" placeholder="تکرار کلمه عبور" [(ngModel)]='rePassword'>
+                    <i class="fa fa-lock right-avatar-icon"></i>
+                    <i class ='far left-avatar-icon' *ngIf='rePassword' [class]="showRepassword ? 'fa-eye-slash' : 'fa-eye'" (click)="showRepassword = !showRepassword" ></i>
+                    <p class="pass-error" [style.opacity]='rePassError ? 1 : 0'>{{rePassError}}</p>
+                </div>
+
+                <button class="btn-submit-pass" (click)='onPassSubmitClick()'>ادامه</button>
             </div>
         </mat-dialog-content>
 </div>
