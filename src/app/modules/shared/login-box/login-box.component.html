@@ -3,7 +3,7 @@
         <button mat-dialog-close class="btn-close"><i class="fas fa-times"></i></button>
     </mat-dialog-actions>
 
-        <mat-dialog-content *ngIf='!showPhoneSection' class="login-box-content">
+        <mat-dialog-content *ngIf='showPhoneSection' class="login-box-content">
             <h2 class="login-title">ورود یا ثبت نام</h2>
 
             <p class="login-subtitle">لطفا برای ادامه شماره همراه خود را وارد نمایید.</p>
@@ -58,7 +58,7 @@
             </div>
         </mat-dialog-content>
 
-        <mat-dialog-content *ngIf='showPassSection' class="login-box-content">
+        <mat-dialog-content *ngIf='showPassSection && !showPassSuccessSection' class="login-box-content">
             <div class="set-pass-container">
                 <h2 class="login-title">ثبت نام در بانی‌مد</h2>
                 <p class="login-subtitle pass-subtitle">
@@ -82,5 +82,11 @@
 
                 <button class="btn-submit-pass" (click)='onPassSubmitClick()'>ادامه</button>
             </div>
+        </mat-dialog-content>
+
+        <mat-dialog-content *ngIf='showPassSuccessSection && !showPassSection' class="login-box-content">
+            <img src="./../../../../assets/icons/success-set-pass.svg" alt="success-password" class="success-login-img">
+            <h2 class="login-title pass-success-title">کلمه عبور جدید با موفقیت ثبت شد.</h2>
+            <button class="btn-pass-success" mat-dialog-close>صفحه اصلی</button>
         </mat-dialog-content>
 </div>

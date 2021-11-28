@@ -334,9 +334,23 @@
         }
         .btn-submit-pass {
             @include green-btn;
+            width: 80%;
+            padding: 20px 0px;
+            border-radius: 12px;
+            margin: 24px 0px 32px 0px;
         }
         .btn-submit-pass:hover {
             background-color: $darkGreen;
+        }
+
+        .pass-success-title {
+            color: $green;
+            font-size: 1.3rem;
+            margin-top: 12px;
+        }
+        .btn-pass-success {
+            @extend .btn-submit-pass;
+            margin: 32px auto 32px auto;
         }
     }
 }

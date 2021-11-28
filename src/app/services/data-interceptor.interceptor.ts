@@ -6,16 +6,24 @@ import {
 } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { StateProccessService } from './state-proccess.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataInterceptorInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private stateService : StateProccessService) {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler) {
-    return next.handle(request)
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    if(this.stateService.getToken()) {
+      req = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${this.stateService.getToken()}`
+        }
+      })
+    }
+    return next.handle(req)
     .pipe(
       catchError((error:any) => {
         let errorMsg : string = 'خطایی رخ داده است!'

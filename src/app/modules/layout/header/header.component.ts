@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { StateProccessService } from 'src/app/services/state-proccess.service';
 import { LoginBoxComponent } from '../../shared/login-box/login-box.component';
 
 @Component({
@@ -9,9 +10,17 @@ import { LoginBoxComponent } from '../../shared/login-box/login-box.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dialog : MatDialog) { }
+  isLoggedin : boolean = false
+
+  constructor(private dialog : MatDialog, private stateService : StateProccessService) { }
 
   ngOnInit(): void {
+  }
+
+  checkLogin() {
+    this.stateService.loginSubject.subscribe((status) => {
+      this.isLoggedin = status
+    })
   }
 
   openDialog() {

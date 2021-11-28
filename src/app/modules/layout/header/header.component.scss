@@ -24,6 +24,7 @@ main {
             position: absolute;
             top: 46px;
             transition: all 0.2s;
+            cursor: pointer;
         }
         .cart-icon:hover {
             color: $green

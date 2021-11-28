@@ -1,8 +1,15 @@
 <main>
     <div class="header-container">
         <div class="top-navbar">
-            <i class="fas fa-shopping-cart cart-icon"></i>
-            <button mat-raised-btn (click)='openDialog()' class="btn-login">ورود / ثبت نام</button>
+            <i class="fas fa-shopping-bag cart-icon"></i>
+
+            <div class="logged-in-items" *ngIf='isLoggedin'>
+                <i class="far fa-heart"></i>
+                <i class="fas fa-wallet"></i>
+                <i class="far fa-user-circle"></i>
+            </div>
+
+            <button mat-raised-btn (click)='openDialog()' *ngIf='!isLoggedin' class="btn-login">ورود / ثبت نام</button>
             <div class="searchbar-container">
                 <i class="fas fa-search"></i>
                 <input type="text" name="searchbar" id="" class="searchbar" placeholder="جستجو در میان بیش از ۴۰۰ برند معتبر">

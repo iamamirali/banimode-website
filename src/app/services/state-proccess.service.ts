@@ -10,7 +10,6 @@ export class StateProccessService {
   setToken(token : string) {
     localStorage.setItem('token', token)
   }
-  
   getToken(): string | null {
     return localStorage.getItem('token')
   }

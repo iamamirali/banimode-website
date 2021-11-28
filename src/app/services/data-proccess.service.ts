@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { IPhoneNumber} from '../models/phoneNumber.model';
 import { IVerifCode } from '../models/verifCode.model';
 import { VerifResponseRootObject } from '../models/verifCode.model';
+import { IPassword } from '../models/password.model';
 
 const baseURL:string = environment.baseURL
 @Injectable({
@@ -47,5 +48,9 @@ export class DataProccessService {
   }
   getVerifResponse() : Observable<VerifResponseRootObject> {
     return this.http.get<VerifResponseRootObject>(`${baseURL}/v2/auth`)
+  }
+
+  sendPassword(password : IPassword) : Observable<IPassword> {
+    return this.http.post<IPassword>(`${baseURL}/v2/profile/set-password`, password)
   }
 }
