@@ -11,6 +11,9 @@ export class StateProccessService {
     localStorage.setItem('token', token)
   }
   getToken(): string | null {
+    if(localStorage.getItem('token')) {
+      this.loginSubject.next(true)
+    }
     return localStorage.getItem('token')
   }
 

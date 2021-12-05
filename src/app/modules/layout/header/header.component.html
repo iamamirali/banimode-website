@@ -1,13 +1,36 @@
 <main>
     <div class="header-container">
         <div class="top-navbar">
-            <i class="fas fa-shopping-bag cart-icon"></i>
-
-            <div class="logged-in-items" *ngIf='isLoggedin'>
-                <i class="far fa-heart"></i>
-                <i class="fas fa-wallet"></i>
-                <i class="far fa-user-circle"></i>
+            
+            <div class="cart-container">
+                <i class="fas fa-shopping-bag cart-icon"></i>
             </div>
+
+            <div class="loggedin-items" *ngIf='isLoggedin'>
+                <i class="far fa-heart"></i>
+                <div class="wallet-container">
+                    <i class="fas fa-wallet wallet-icon"></i>
+                    <div class="wallet-hover-box">
+                        <p>اعتبار کیف پول: <span>0 تومان</span></p>
+                    </div>
+                </div>
+
+                <div class="userbox-container">
+                    <div class="userbox" (click)='onBoxClick()'>
+                        <i class="far fa-user-circle"></i>
+                        <p>بانی مدی عزیز</p>
+                        <i class="fas fa-chevron-down user-arrow" tabindex="0"></i>
+                    </div>
+                    <div class="user-click-box" [ngClass]="{'show-click-box' : showClickBox}">
+                        <p><i class="far fa-user"></i>حساب کاربری</p>
+
+                        <p><i class="far fa-list-alt"></i>سفارش ها</p>
+
+                        <p><i class="fas fa-sign-out-alt logout-icon"></i>خروج از حساب</p>
+                    </div>
+                </div>
+            </div>
+            
 
             <button mat-raised-btn (click)='openDialog()' *ngIf='!isLoggedin' class="btn-login">ورود / ثبت نام</button>
             <div class="searchbar-container">

@@ -11,10 +11,13 @@ import { LoginBoxComponent } from '../../shared/login-box/login-box.component';
 export class HeaderComponent implements OnInit {
 
   isLoggedin : boolean = false
+  showHoverBox : boolean = false
+  showClickBox : boolean = false
 
   constructor(private dialog : MatDialog, private stateService : StateProccessService) { }
 
   ngOnInit(): void {
+    this.checkLogin()
   }
 
   checkLogin() {
@@ -27,4 +30,10 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(LoginBoxComponent)
   }
 
+  onBoxHover() {
+    this.showHoverBox = true
+  }
+  onBoxClick() {
+    this.showClickBox = !this.showClickBox
+  }
 }
