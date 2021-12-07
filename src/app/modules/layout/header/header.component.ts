@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   isLoggedin : boolean = false
   showHoverBox : boolean = false
   showClickBox : boolean = false
+  showCartBox : boolean = false
 
   constructor(private dialog : MatDialog, private stateService : StateProccessService) { }
 
@@ -35,5 +36,13 @@ export class HeaderComponent implements OnInit {
   }
   onBoxClick() {
     this.showClickBox = !this.showClickBox
+  }
+  onCartClick() {
+    this.showCartBox = !this.showCartBox
+  }
+
+  onBoxCloserClick() {
+    this.showClickBox = false
+    this.showCartBox = false
   }
 }

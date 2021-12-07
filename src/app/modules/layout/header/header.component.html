@@ -1,9 +1,16 @@
 <main>
+    <button class="box-closer" [ngClass]="{'show-box-closer' : showCartBox || showClickBox}" (click)='onBoxCloserClick()'></button>
     <div class="header-container">
         <div class="top-navbar">
-            
             <div class="cart-container">
-                <i class="fas fa-shopping-bag cart-icon"></i>
+                <i class="fas fa-shopping-bag cart-icon" (click)="onCartClick()"></i>
+                <div class="cart-box" [ngClass]="{'show-cart' : showCartBox}">
+                    <div>
+                        <img src="assets/icons/empty-cart.svg" alt="">
+                        <p class="empty-cart-title">سبد خرید شما خالی است.</p>
+                        <p class="empty-cart-subtitle">می توانید استایل خاص خود را با بهترین کالاهای برندهای جهان بسازید.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="loggedin-items" *ngIf='isLoggedin'>
@@ -37,7 +44,7 @@
                 <i class="fas fa-search"></i>
                 <input type="text" name="searchbar" id="" class="searchbar" placeholder="جستجو در میان بیش از ۴۰۰ برند معتبر">
             </div>
-            <img src="./../../../../assets/icons/banilogo.png" alt="banimode" class="header-brand">
+            <img src="assets/icons/banilogo.png" alt="banimode" class="header-brand">
         </div>
 
         <app-navlinks></app-navlinks>

@@ -5,9 +5,29 @@
     from {top: 20px;}
     to {top: 50px;}
 }
+@keyframes move-cart-box {
+    from {top: 60px;}
+    to {top: 100px;}
+}
 
 main {
     width: 100%;
+}
+
+.box-closer {
+    width: 100vw;
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    position: fixed;
+    border: none;
+    z-index: 5;
+    cursor: initial;
+}
+.show-box-closer {
+    display: flex;
 }
 
 .header-container {
@@ -24,16 +44,62 @@ main {
         position: relative;
         padding-top: 32px;
 
-        .cart-icon {
-            font-size: 1.7rem;
-            position: absolute;
-            top: 46px;
-            transition: all 0.2s;
-            cursor: pointer;
-            margin-right: 14px;
-        }
-        .cart-icon:hover {
-            color: $green
+        .cart-container {
+            .cart-icon {
+                font-size: 1.7rem;
+                position: absolute;
+                top: 46px;
+                transition: all 0.2s;
+                cursor: pointer;
+                margin-right: 14px;
+            }
+            .cart-icon:hover {
+                color: $green
+            }
+
+            .cart-box {
+                @include white-hover-box;
+                display: none;
+                max-height: 80vh;
+                width: 40%;
+                box-shadow: 8px 0px 10px $lighterGray;
+                text-align: center;
+                padding: 64px 0px;
+
+                img {
+                    width: 27%;
+                    margin-top: 24px;
+                }
+                .empty-cart-title {
+                    font: 1.15rem;
+                    margin-top: 28px;
+                }
+                .empty-cart-subtitle {
+                    margin: 28px auto 0px auto;
+                    width: 55%;
+                    font-size: 0.9rem;
+                }
+            }
+            .show-cart {
+                display: flex;
+                flex-direction: column;
+                top: 100px;
+                right: -8px;
+                animation: move-cart-box 0.3s linear 0s 1 normal;
+
+                ::after {
+                    content: '';
+                    position: absolute;
+                    top: -14px;
+                    right: 18px;
+                    width: 0; 
+                    height: 0; 
+                    border-left: 16px solid transparent;
+                    border-right: 16px solid transparent;
+                    border-bottom: 16px solid white;
+                    filter: drop-shadow(1px -4px 2px $darkWhite);
+                }
+            }
         }
 
         .loggedin-items {
