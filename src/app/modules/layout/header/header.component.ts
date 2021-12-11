@@ -45,4 +45,11 @@ export class HeaderComponent implements OnInit {
     this.showClickBox = false
     this.showCartBox = false
   }
+
+  onLogoutClick() {
+    this.stateService.loginSubject.next(false);
+    this.stateService.deleteToken();
+    this.showClickBox = false
+    this.showCartBox = false
+  }
 }

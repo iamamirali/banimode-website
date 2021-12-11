@@ -16,6 +16,9 @@ export class StateProccessService {
     }
     return localStorage.getItem('token')
   }
+  deleteToken() {
+    localStorage.removeItem("token")
+  }
 
   constructor() { }
 }

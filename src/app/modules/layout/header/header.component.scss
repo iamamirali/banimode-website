@@ -233,7 +233,6 @@ main {
 
         .btn-login {
             @include green-btn;
-            margin-right: 40px;
         }
         .btn-login:hover {
             background-color: $darkGreen;

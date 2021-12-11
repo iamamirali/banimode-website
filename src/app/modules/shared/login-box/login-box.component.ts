@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { delay } from 'rxjs/operators';
 import { IPassword } from 'src/app/models/password.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 import { StateProccessService } from 'src/app/services/state-proccess.service';
@@ -32,12 +34,18 @@ export class LoginBoxComponent implements OnInit {
   rePassError : string = ''
 
   showPassSuccessSection : boolean = false
+  showPassLoginSection: boolean = false
+  isOncePassClicked: boolean = false
+  isResetPassClicked: boolean = false
 
 
-  constructor(private dataFetch : DataProccessService, private stateService : StateProccessService) { }
+  constructor(private dataFetch : DataProccessService, private stateService : StateProccessService,private dialogRef: MatDialogRef<LoginBoxComponent>) { }
 
   ngOnInit(): void {
-    
+  }
+
+  closeDialog(){
+    this.dialogRef.close();
   }
 
   onNextBtnClick() {
@@ -50,7 +58,12 @@ export class LoginBoxComponent implements OnInit {
       this.dataFetch.sendPhoneNumber(phoneNumber).subscribe((data) => {
         this.showPhoneSection = false
         this.phoneError = ''
-        this.verifCodeTimer()
+        if(data.body.data.user.has_password) {
+          this.showPassLoginSection = true
+        } else {
+          this.verifCodeTimer()
+          this.showPassLoginSection = false
+        }
       }, (error) => {
         this.phoneError = error
       })
@@ -68,11 +81,10 @@ export class LoginBoxComponent implements OnInit {
   }
 
   onResendCodeClick() {
-    const phoneNumber = {
+    let phoneNumber = {
       phone: this.phoneInput
     }
     this.totalTime = 120;
-    
     this.dataFetch.sendPhoneNumber(phoneNumber).subscribe(() => {
       this.verifCodeTimer()
     })
@@ -112,11 +124,18 @@ export class LoginBoxComponent implements OnInit {
         if(data.body.status == 'error') {
           this.verifError = data.body.message
         } else {
-          this.verifError = ''
-          this.timerStopper()
-          this.showLoginSuccess = true
-          this.stateService.loginSubject.next(true)
-          this.stateService.setToken(data.body.data.token)
+          if(this.isOncePassClicked) {
+            this.closeDialog()
+          } else if(this.isResetPassClicked) {
+            this.stateService.loginSubject.next(true)
+            this.showPassSection = true
+          } else {
+            this.verifError = ''
+            this.timerStopper()
+            this.showLoginSuccess = true
+            this.stateService.loginSubject.next(true)
+            this.stateService.setToken(data.body.data.token)
+          }
         }
       }, (error) => {
         this.verifError = error
@@ -126,6 +145,7 @@ export class LoginBoxComponent implements OnInit {
 
   onSetPassClick() {
     this.showPassSection = true
+    this.showLoginSuccess = false
   }
 
   onPassSubmitClick() {
@@ -138,20 +158,47 @@ export class LoginBoxComponent implements OnInit {
         this.passError = ''
         this.rePassError = 'کلمه عبور یکسان نمی باشد.'
       } else {
-        const passwordData : IPassword = {
-          password: this.password,
-          password_confirmation: this.rePassword
-        }
-        this.passError = ''
-        this.rePassError = ''
-        this.dataFetch.sendPassword(passwordData).subscribe((data) => {
-          console.log(data);
-        })
+          const passwordData : IPassword = {
+            password: this.password,
+            password_confirmation: this.rePassword
+          }
+          this.passError = ''
+          this.rePassError = ''
+          this.dataFetch.sendPassword(passwordData).subscribe()
+          this.showPassSection = false
+          this.showPassSuccessSection = true
       }
     } 
     else if (this.password == '') {
       this.passError = 'پر کردن این فیلد الزامیست.'
       this.rePassError = 'کلمه عبور یکسان نمی باشد و حداقل باید ۶ کارکتر باشد.'
     }
+  }
+
+  onSendOnceClick() {
+    this.isOncePassClicked = true
+    this.showPassLoginSection = false
+    let phoneNumber = {
+      phone: this.phoneInput,
+      flag: "login_with_otp"
+    }
+    this.totalTime = 120;
+    this.dataFetch.sendPhoneNumber(phoneNumber).subscribe(() => {
+      this.verifCodeTimer()
+    })
+  }
+
+  onResetPassClick() {
+    this.isResetPassClicked = true
+    this.showPassLoginSection = false
+
+    let phoneNumber = {
+      phone: this.phoneInput,
+      flag: "recovery_password"
+    }
+    this.totalTime = 120;
+    this.dataFetch.sendPhoneNumber(phoneNumber).subscribe(() => {
+      this.verifCodeTimer()
+    })
   }
 }

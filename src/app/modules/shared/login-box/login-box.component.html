@@ -25,7 +25,7 @@
             </div>
         </mat-dialog-content>
 
-        <mat-dialog-content *ngIf='!showPhoneSection && !showLoginSuccess' class="login-box-content">
+        <mat-dialog-content *ngIf='!showPhoneSection && !showLoginSuccess && !showPassLoginSection && !showPassSection && !showPassSuccessSection' class="login-box-content">
             <h3 class="login-title">ورود به بانی‌مد</h3>
             <p class="login-subtitle">کد تایید ۵ رقمی ارسال شده به شماره همراه زیر را وارد نمایید.</p>
 
@@ -59,8 +59,8 @@
         </mat-dialog-content>
 
         <mat-dialog-content *ngIf='showPassSection && !showPassSuccessSection' class="login-box-content">
-            <div class="set-pass-container">
-                <h2 class="login-title">ثبت نام در بانی‌مد</h2>
+            <div class="pass-container">
+                <h2 class="login-title">{{isResetPassClicked ? "بازیابی رمز عبور" : "ثبت نام در بانی‌مد"}}</h2>
                 <p class="login-subtitle pass-subtitle">
                     جهت افزایش امنیت حساب کاربری خود، یک کلمه عبور وارد نمایید.
                     <span>(کلمه عبور حداقل باید ۶ کارکتر باشد)</span>
@@ -78,15 +78,28 @@
                     <i class="fa fa-lock right-avatar-icon"></i>
                     <i class ='far left-avatar-icon' *ngIf='rePassword' [class]="showRepassword ? 'fa-eye-slash' : 'fa-eye'" (click)="showRepassword = !showRepassword" ></i>
                     <p class="pass-error" [style.opacity]='rePassError ? 1 : 0'>{{rePassError}}</p>
+                    <button class="btn-submit-pass" (click)='onPassSubmitClick()'>ادامه</button>
                 </div>
-
-                <button class="btn-submit-pass" (click)='onPassSubmitClick()'>ادامه</button>
             </div>
         </mat-dialog-content>
 
         <mat-dialog-content *ngIf='showPassSuccessSection && !showPassSection' class="login-box-content">
-            <img src="./../../../../assets/icons/success-set-pass.svg" alt="success-password" class="success-login-img">
+            <img src="assets/icons/success-set-pass.svg" alt="success-password" class="success-login-img">
             <h2 class="login-title pass-success-title">کلمه عبور جدید با موفقیت ثبت شد.</h2>
             <button class="btn-pass-success" mat-dialog-close>صفحه اصلی</button>
+        </mat-dialog-content>
+
+        <mat-dialog-content *ngIf='showPassLoginSection' class="login-box-content">
+            <h2 class="login-title">ورود به بانی‌مد</h2>
+            <p class="login-subtitle">لطفا کلمه عبور را وارد کنید</p>
+            <div class="pass-container login-input-container">
+                <input [type]="showPassword ? 'text' : 'password'" [style.border-color]="passError ? 'red' : '#b9b9b9'" class="login-number-input" placeholder="کلمه عبور" [(ngModel)]='password'>
+                <i class="fa fa-lock right-avatar-icon"></i>
+                <i class ='far left-avatar-icon' *ngIf='password' [class]="showPassword ? 'fa-eye-slash' : 'fa-eye'" (click)="showPassword = !showPassword"></i>
+                <p class="pass-error" [style.opacity]='passError ? 1 : 0'>{{passError}}</p>
+            </div>
+            <button class="btn-otp-login" (click)="onSendOnceClick()">ورود با رمز یکبار مصرف</button>
+            <button class="btn-continue">ادامه</button>
+            <p class="forgot-password" > کلمه عبور را فراموش کردید؟ <button class="btn-otp-login" (click)="onResetPassClick()"> بازیابی رمز عبور </button></p>
         </mat-dialog-content>
 </div>

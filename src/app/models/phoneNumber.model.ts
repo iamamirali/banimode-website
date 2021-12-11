@@ -7,3 +7,7 @@
     export interface IPhoneNumber {
         phone: string;
     }
+    export interface IPhoneNumberOnce {
+        phone: string;
+        flag: string;
+    }

@@ -1,62 +1,85 @@
 @import 'variables';
 
 @mixin green-btn {
-    background-color: $green;
-    color: $lightWhite;
-    border-style: none;
-    border-radius: 28px;
-    padding: 12px 24px;
-    font-size: 15px;
-    font-family: 'iranyekan';
-    transition: all 0.2s;
+  background-color: $green;
+  color: $lightWhite;
+  border-style: none;
+  border-radius: 28px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-family: 'iranyekan';
+  transition: all 0.2s;
 }
 
 @mixin green-btn-outline {
-    background: none;
-    color: $green;
-    border: 1px solid $green;
-    border-radius: 28px;
-    padding: 12px 24px;
-    font-size: 15px;
-    font-family: 'iranyekan';
-    transition: all 0.2s;
+  background: none;
+  color: $green;
+  border: 1px solid $green;
+  border-radius: 28px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-family: 'iranyekan';
+  transition: all 0.2s;
 }
 
 @mixin green-btn-outline-hover {
-    color: $darkGreen;
-    border-color: $darkGreen;
+  color: $darkGreen;
+  border-color: $darkGreen;
 }
 
 @mixin show-all-btn {
-    margin-top: 36px;
-    background: none;
-    border: 1px solid $lighterGray;
-    padding: 11px;
-    width: 270px;
-    border-radius: 36px;
-    font-size: 1.15rem;
-    color: $green;
-    cursor: pointer;
-    transition: all 0.2s;
+  margin-top: 36px;
+  background: none;
+  border: 1px solid $lighterGray;
+  padding: 11px;
+  width: 270px;
+  border-radius: 36px;
+  font-size: 1.15rem;
+  color: $green;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 @mixin show-all-btn-hover {
-    margin-top: 36px;
-    background: none;
-    border: 1px solid $green;
-    padding: 11px;
-    width: 270px;
-    border-radius: 36px;
-    font-size: 1.15rem;
-    color: $green;
-    cursor: pointer;
-    transition: all 0.2s;
+  margin-top: 36px;
+  background: none;
+  border: 1px solid $green;
+  padding: 11px;
+  width: 270px;
+  border-radius: 36px;
+  font-size: 1.15rem;
+  color: $green;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+@mixin input-container {
+  width: 65%;
+  padding: 16px 64px 16px 12px;
+  font-size: 16px;
+  text-align: right;
+  transition: border-color 0.3s;
+
+  border: {
+    radius: 12px;
+    color: $lightGray;
+    style: solid;
+    width: 1px;
+  }
 }
 
 @mixin white-hover-box {
-    background-color: white;
-    box-shadow: 2px 0px 8px $lighterGray;
-    position: absolute;
-    border-radius: 12px;
-    z-index: 10;
+  background-color: white;
+  box-shadow: 2px 0px 8px $lighterGray;
+  position: absolute;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+@mixin green-backless-btn {
+  background: none;
+  border: none;
+  color: $green;
+  cursor: pointer;
+  transition: color 0.3s;
 }
