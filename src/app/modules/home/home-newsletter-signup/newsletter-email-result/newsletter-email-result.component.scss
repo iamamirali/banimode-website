@@ -1,0 +1,82 @@
+@import 'variables';
+@import 'mixins';
+
+::ng-deep .mat-dialog-content {
+    max-height: 80vh !important;
+}
+::ng-deep .mat-dialog-actions {
+    min-height: 48px !important;
+}
+::ng-deep .mat-dialog-container {
+    border-radius: 14px;
+}
+
+.newsletter-result-container {
+    width: 35vw;
+    border-radius: 1px;
+    position: relative;
+    direction: rtl;
+    text-align: center;
+
+    .btn-close {
+        position: absolute;
+        font-size: 1.5rem;
+        top: 4px;
+        left: 12px;
+        background: none;
+        border-style: none;
+        color: $gray;
+        transition: color 0.2s;
+        cursor: pointer;
+    }
+    .btn-close:hover {
+        color: $darkGray;
+    }
+    
+    .newsletter-result {
+        .success-icon-container {
+            .success-icon {
+                background-color: $lightGreen;
+                position: relative;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                text-align: center;
+                margin: 0px auto 36px auto;
+                
+                i {
+                    font-size: 4.5rem;
+                    color: $green;
+                    position: absolute;
+                    top: 40px;
+                    right: 40px;
+                }
+            }
+        }
+
+        .success-result-title {
+            color: $green;
+            font-size: 1.3rem;
+            margin-bottom: 28px;
+        }
+        .success-result-content {
+            font-size: 14px;
+            color: $darkGray;
+            margin-bottom: 24px
+        }
+        .close-btn {
+            @include green-btn;
+            width: 95%;
+            border-radius: 8px;
+            margin-bottom: 36px;
+            padding: {
+                top: 14px;
+                bottom: 14px;
+            };
+            transition: background 0.3s;
+        }
+        .close-btn:hover {
+            background-color: $darkGreen;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<div class="newsletter-result-container">
+    <mat-dialog-actions>
+        <button mat-dialog-close class="btn-close"><i class="fas fa-times"></i></button>
+    </mat-dialog-actions>
+
+    <mat-dialog-content *ngIf='resultStatus' class="newsletter-result">
+        <div class="success-icon-container">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+        <h3 class="success-result-title">تشکر!</h3>
+        <div class="success-result-content">ثبت نام شما در خبرنامه با موفقیت انجام شد.</div>
+        <button class="close-btn" mat-dialog-close>بستن</button>
+    </mat-dialog-content>
+
+    <!-- <mat-dialog-content *ngIf='resultStatus === false' class="newsletter-result">
+        <div class="failed-icon-container"></div>
+        <h3 class="failed-result-title">خطا!</h3>
+        <div class="failed-result-content">ایمیل نامعتبر می باشد.</div>
+        <button class="close-btn">بستن</button>
+    </mat-dialog-content> -->
+</div>

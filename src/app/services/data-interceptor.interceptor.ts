@@ -19,7 +19,7 @@ export class DataInterceptorInterceptor implements HttpInterceptor {
     if(this.stateService.getToken()) {
       req = req.clone({
         setHeaders: {
-          Authorization: `Bearer ${this.stateService.getToken()}`
+          Authorization: `Bearer ${this.stateService.getToken()}`,
         }
       })
     }

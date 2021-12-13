@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FlashSalesRootObject } from '../models/flash-sales.model';
 import { SuggestionsRootObject } from '../models/suggestions.model';
@@ -10,6 +10,7 @@ import { IPhoneNumber, IPhoneNumberOnce} from '../models/phoneNumber.model';
 import { IVerifCode } from '../models/verifCode.model';
 import { VerifResponseRootObject } from '../models/verifCode.model';
 import { IPassword } from '../models/password.model';
+import { IEmail } from '../models/email.model';
 
 const baseURL:string = environment.baseURL
 @Injectable({
@@ -56,4 +57,7 @@ export class DataProccessService {
   sendPassword(password : IPassword) : Observable<IPassword> {
     return this.http.post<IPassword>(`${baseURL}/v2/profile/set-password`, password)
   }
+  // sendEmail(email: FormData) : Observable<HttpResponse<any>> {
+  //   return this.http.post('https://www.banimode.com/module/banitemplate/registerNewsletter', email, {observe: "response"})
+  // }
 }

@@ -5,7 +5,7 @@
     </div>
 
     <div class="newsletter-input-container">
-        <input type="email" placeholder="آدرس ایمیل شما">
-        <button class="btn-send">ارسال <i class="fas fa-arrow-left"></i></button>
+        <input type="email" placeholder="آدرس ایمیل شما" [(ngModel)]='emailInput'>
+        <button class="btn-send" (click)='openDialog()'>ارسال <i class="fas fa-arrow-left"></i></button>
     </div>
 </div>
