@@ -10,7 +10,6 @@ import { IPhoneNumber, IPhoneNumberOnce} from '../models/phoneNumber.model';
 import { IVerifCode } from '../models/verifCode.model';
 import { VerifResponseRootObject } from '../models/verifCode.model';
 import { IPassword } from '../models/password.model';
-import { IEmail } from '../models/email.model';
 
 const baseURL:string = environment.baseURL
 @Injectable({

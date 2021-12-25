@@ -89,7 +89,7 @@ export interface AllColor {
     image: Image[];
 }
 
-export interface Datum {
+export interface SugessDatum {
     id_product: number;
     id_product_attribute: number;
     id_color: number;
@@ -118,7 +118,7 @@ export interface Datum {
 }
 
 export interface Data {
-    data: Datum[];
+    data: SugessDatum[];
 }
 
 export interface SuggestionsRootObject {

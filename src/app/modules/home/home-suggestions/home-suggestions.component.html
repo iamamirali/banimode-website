@@ -5,41 +5,43 @@
         <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig'>
             <div ngxSlickItem *ngFor='let item of suggestions let i = index' class="slide">
                 <div class="product-card">
-                    <div class="product-img-container">
-                        <div>
-                            <div [style.background-image]="'url('+item.images.large_default[0]+')'" alt="" class="product-img"></div>
-                            <div *ngIf='item.product_specific_price' class="discount-badge">%{{item.product_specific_price.discount_percent}}</div>
-                            <div *ngIf='item.promotion_label' class="promotion-label">{{item.promotion_label.title}}</div>
-                        </div>
-                    </div>
-
-                    <div class="product-content">
-                        <div class="product-row1">
-                            <h3 class="product-brand">{{item.product_manufacturer_en_name}}</h3>
-                            <p class="product-main-price" *ngIf='item.product_specific_price'>{{item.product_price.toLocaleString()}} <span>تومان</span></p>
+                    <a [routerLink]="['/products',item.id_product]">
+                        <div class="product-img-container">
+                            <div>
+                                <div [style.background-image]="'url('+item.images.large_default[0]+')'" alt="" class="product-img"></div>
+                                <div *ngIf='item.product_specific_price' class="discount-badge">%{{item.product_specific_price.discount_percent}}</div>
+                                <div *ngIf='item.promotion_label' class="promotion-label">{{item.promotion_label.title}}</div>
+                            </div>
                         </div>
 
-                        <div class="product-row2">
-                            <p class="product-name">{{item.product_name}}</p>
-                            <p *ngIf='item.product_specific_price' class="product-price">{{item.product_specific_price.specific_price.toLocaleString()}} <span>تومان</span></p>
-                            <p *ngIf='!item.product_specific_price' class="product-price">{{item.product_price.toLocaleString()}} <span>تومان</span></p>
-                        </div>
+                        <div class="product-content">
+                            <div class="product-row1">
+                                <h3 class="product-brand">{{item.product_manufacturer_en_name}}</h3>
+                                <p class="product-main-price" *ngIf='item.product_specific_price'>{{item.product_price.toLocaleString()}} <span>تومان</span></p>
+                            </div>
 
-                        <div class="product-row3">
-                            <div class="product-size-list">
-                                <div *ngIf='item.size.length >= 3'>
-                                    <span class="size-item" *ngFor='let list of [1,2,3] let i = index'>{{item.size[i].name}}</span>
-                                    <span class="remained-size-item" *ngIf='item.size.length -3 != 0'>+{{item.size.length - 3}}</span>
-                                </div>
+                            <div class="product-row2">
+                                <p class="product-name">{{item.product_name}}</p>
+                                <p *ngIf='item.product_specific_price' class="product-price">{{item.product_specific_price.specific_price.toLocaleString()}} <span>تومان</span></p>
+                                <p *ngIf='!item.product_specific_price' class="product-price">{{item.product_price.toLocaleString()}} <span>تومان</span></p>
+                            </div>
 
-                                <div *ngIf='item.size.length < 3'>
-                                    <div *ngFor='let sizeItem of item.size'>
-                                        <span class="size-item">{{sizeItem.name}}</span>
+                            <div class="product-row3">
+                                <div class="product-size-list">
+                                    <div *ngIf='item.size.length >= 3'>
+                                        <span class="size-item" *ngFor='let list of [1,2,3] let i = index'>{{item.size[i].name}}</span>
+                                        <span class="remained-size-item" *ngIf='item.size.length -3 != 0'>+{{item.size.length - 3}}</span>
+                                    </div>
+
+                                    <div *ngIf='item.size.length < 3'>
+                                        <div *ngFor='let sizeItem of item.size'>
+                                            <span class="size-item">{{sizeItem.name}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </ngx-slick-carousel>

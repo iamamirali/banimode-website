@@ -14,6 +14,8 @@ import { HomeModule } from './modules/home/home.module';
 import { DataInterceptorInterceptor } from './services/data-interceptor.interceptor';
 import { SharedModule } from './modules/shared/shared.module';
 import { LoginBoxComponent } from './modules/shared/login-box/login-box.component';
+import { ProductPageModule } from './modules/product-page/product-page.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { LoginBoxComponent } from './modules/shared/login-box/login-box.componen
     HttpClientModule,
     LayoutModule,
     HomeModule,
+    RouterModule,
+    ProductPageModule,
     SharedModule,
     SlickCarouselModule
   ],

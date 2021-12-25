@@ -75,7 +75,8 @@
         image: Image[];
     }
 
-    export interface Datum {
+    export interface FlashDatum {
+        id: any;
         id_product: number;
         id_product_attribute: number;
         id_color: number;
@@ -104,7 +105,7 @@
     }
 
     export interface Data {
-        data: Datum[];
+        data: FlashDatum[];
         bani_time: string;
         timer: number;
         time: string;

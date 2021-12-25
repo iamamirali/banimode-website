@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
-import { Datum } from 'src/app/models/suggestions.model';
+import { SugessDatum } from 'src/app/models/suggestions.model';
 
 @Component({
   selector: 'app-home-suggestions',
@@ -9,7 +9,7 @@ import { Datum } from 'src/app/models/suggestions.model';
 })
 export class HomeSuggestionsComponent implements OnInit {
 
-  suggestions : Datum[] = []
+  suggestions : SugessDatum[] = []
   productHover : boolean[] = []
 
   interval: any;

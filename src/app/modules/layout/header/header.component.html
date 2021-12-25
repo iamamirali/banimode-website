@@ -44,7 +44,9 @@
                 <i class="fas fa-search"></i>
                 <input type="text" name="searchbar" id="" class="searchbar" placeholder="جستجو در میان بیش از ۴۰۰ برند معتبر">
             </div>
-            <img src="assets/icons/banilogo.png" alt="banimode" class="header-brand">
+            <a [routerLink]='["/"]' class="header-brand">
+                <img src="assets/icons/banilogo.png" alt="banimode">
+            </a>
         </div>
 
         <app-navlinks></app-navlinks>

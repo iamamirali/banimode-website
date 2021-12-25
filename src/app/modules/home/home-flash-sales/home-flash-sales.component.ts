@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Datum } from 'src/app/models/flash-sales.model';
+import { FlashDatum } from 'src/app/models/flash-sales.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
   styleUrls: ['./home-flash-sales.component.scss']
 })
 export class HomeFlashSalesComponent implements OnInit, OnDestroy {
-  flashSales : Datum[] = []
+  flashSales : FlashDatum[] = []
   productHover : boolean[] = []
 
   interval: any;
