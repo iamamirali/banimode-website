@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
+
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { LayoutModule } from './modules/layout/layout.module';
 import { HomeModule } from './modules/home/home.module';
@@ -35,7 +36,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     ProductPageModule,
     SharedModule,
-    SlickCarouselModule
+    SlickCarouselModule,
   ],
   providers: [
     {

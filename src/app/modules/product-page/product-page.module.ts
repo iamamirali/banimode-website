@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductPageRoutingModule } from './product-page-routing-module';
 import { ProductPageComponent } from './product-page/product-page.component';
+// import { ImgMagnifier } from "ng-img-magnifier";
+
+
+
 
 
 @NgModule({
@@ -9,8 +13,9 @@ import { ProductPageComponent } from './product-page/product-page.component';
     ProductPageComponent
   ],
   imports: [
+    // ImgMagnifier,
     CommonModule,
-    ProductPageRoutingModule
+    ProductPageRoutingModule,
   ],
   exports: [
     ProductPageComponent
