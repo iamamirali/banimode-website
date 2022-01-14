@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+
 
 
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
@@ -37,6 +39,7 @@ import { RouterModule } from '@angular/router';
     ProductPageModule,
     SharedModule,
     SlickCarouselModule,
+    NgxImageZoomModule
   ],
   providers: [
     {

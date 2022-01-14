@@ -12,7 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductPageComponent implements OnInit {
   productList : FlashDatum[] | SugessDatum[] = []
   productItem : FlashDatum | SugessDatum | undefined
-
+  mainImage: string = ''
+  
   constructor(private dataFetch : DataProccessService , private route : ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class ProductPageComponent implements OnInit {
       this.productList = data.data.data
       if(!this.productItem) {
         this.productItem = this.productList.find((item) => item.id_product === +this.route.snapshot.params['id'])
+        this.mainImage = this.productItem ? this.productItem.images.thickbox_default[0] : ''
       }
       console.log(this.productItem);
     })
@@ -33,6 +35,10 @@ export class ProductPageComponent implements OnInit {
         this.productItem = this.productList.find((item) => item.id_product === +this.route.snapshot.params['id'])
       }
     })
+  }
+
+  onExtraImgClick(image : string) {
+    this.mainImage = image
   }
 
 }

@@ -1,10 +1,17 @@
-<div class="product-path">{{productItem ? productItem.product_name : null}}</div>
-<div class="product-image-container">
-  <div class="img-magnifier-container">
-    <img id="myimage" src="https://www.banimode.com/img/cms/001021/1641891282.jpg" width="600" height="400">
+  <div class="product-path">{{productItem ? productItem.product_name : null}}</div>
+  <div class="product-main-container">
+  <div class="product-image-container">
+    <div class="product-main-image">
+      <lib-ngx-image-zoom
+      [thumbImage]=mainImage [fullImage]=mainImage [magnification]=2>
+    </lib-ngx-image-zoom>
   </div>
-</div>
-<div class="product-info-container">
+  <div class="all-images-container">
+    <img *ngFor='let image of (productItem ? productItem.images.thickbox_default: []) ' src="{{image}}" alt="" (click)="onExtraImgClick(image)" class="extra-image">
+  </div>
+  </div>
+  <div class="product-info-container">
     
+  </div>
 </div>
 <router-outlet></router-outlet>

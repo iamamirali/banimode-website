@@ -1,3 +1,40 @@
-.test-image:hover {
-    zoom: 2;
+@import 'variables';
+
+::ng-deep .ngxImageZoomContainer {
+    width: 500px;
+
+    img {
+        width: 450px;
+    }
 }
+
+.product-main-container {
+    width: 1200px;
+    margin: auto;
+    
+    .product-image-container {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        direction: ltr;
+
+        .product-main-image {
+            width: 80%;
+            background-color: white;
+            border: 1px solid $gray;
+            border-radius: 16px;
+        }
+        .all-images-container {
+            background-color: red;
+            width: 20%;
+
+            .extra-image {
+                width: 50px;
+            }
+        }
+    }
+    .product-info-container {
+        width: 50%;
+    }
+}
+
