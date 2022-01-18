@@ -25,8 +25,8 @@ export class ProductPageComponent implements OnInit {
       this.productList = data.data.data
       if(!this.productItem) {
         this.productItem = this.productList.find((item) => item.id_product === +this.route.snapshot.params['id'])
-        this.mainImage = this.productItem ? this.productItem.images.thickbox_default[0] : ''
       }
+      this.mainImage = this.productItem ? this.productItem.images.thickbox_default[0] : ''
       console.log(this.productItem);
     })
     this.dataFetch.getSuggestions().subscribe((data) => {

@@ -7,7 +7,10 @@
     </lib-ngx-image-zoom>
   </div>
   <div class="all-images-container">
-    <img *ngFor='let image of (productItem ? productItem.images.thickbox_default: []) ' src="{{image}}" alt="" (click)="onExtraImgClick(image)" class="extra-image">
+    <div *ngFor='let image of (productItem ? productItem.images.thickbox_default: []) ' class="all-images-border">
+      <div class="images-overlay" (click)="onExtraImgClick(image)"></div>
+      <img src="{{image}}" alt="" class="extra-image">
+    </div>
   </div>
   </div>
   <div class="product-info-container">
