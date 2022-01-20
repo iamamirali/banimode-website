@@ -24,12 +24,39 @@
             background-color: white;
             border: 1px solid $gray;
             border-radius: 10px;
+            margin-left: 24px;
+            position: relative;
+
+            .image-badge-container {
+                
+                .discount-badge {
+                    position: absolute;
+                    font-family: 'iranyekan-bold';
+                    top: 24px;
+                    background-color: $orange;
+                    color: $lightWhite;
+                    padding: 6px 16px;
+                    border-top-right-radius: 18px;
+                    border-bottom-right-radius: 18px;
+                    font-size: 18px;
+                }
+                .promotion-label{
+                    position: absolute;
+                    top: 24px;
+                    right: 24px;
+                    background-color: $green;
+                    color: $milky;
+                    width: max-content;
+                    font-size: 0.8rem;
+                    padding: 10px 6px;
+                    border-radius: 6px;
+                  }
+            }
         }
         .all-images-container {
-            width: 20%;
+            width: 17%;
             height: 500px;
             overflow: overlay;
-            margin: auto;
             margin-top: 0px;
             text-align: center;
 

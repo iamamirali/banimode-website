@@ -1,13 +1,20 @@
-  <div class="product-path">{{productItem ? productItem.product_name : null}}</div>
+  <div class="product-path">{{productItem?.product_name}}</div>
   <div class="product-main-container">
   <div class="product-image-container">
     <div class="product-main-image">
       <lib-ngx-image-zoom
       [thumbImage]=mainImage [fullImage]=mainImage [magnification]=2>
-    </lib-ngx-image-zoom>
-  </div>
+      </lib-ngx-image-zoom>
+      <div class="image-badge-container">
+        <div *ngIf='productItem?.product_specific_price' class="discount-badge">{{productItem?.product_specific_price ? productItem?.product_specific_price?.discount_percent : null}}%
+        </div>
+
+        <div *ngIf='productItem?.promotion_label' class="promotion-label">{{productItem?.promotion_label ? productItem?.promotion_label.title : null}}
+        </div>
+      </div>
+    </div>
   <div class="all-images-container">
-    <div *ngFor='let image of (productItem ? productItem.images.thickbox_default: []) ' class="all-images-border">
+    <div *ngFor='let image of (productItem?.images?.thickbox_default) ' class="all-images-border">
       <div class="images-overlay" (click)="onExtraImgClick(image)"></div>
       <img src="{{image}}" alt="" class="extra-image">
     </div>
