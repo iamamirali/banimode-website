@@ -1,27 +1,39 @@
-  <div class="product-path">{{productItem?.product_name}}</div>
-  <div class="product-main-container">
-  <div class="product-image-container">
-    <div class="product-main-image">
-      <lib-ngx-image-zoom
-      [thumbImage]=mainImage [fullImage]=mainImage [magnification]=2>
-      </lib-ngx-image-zoom>
-      <div class="image-badge-container">
-        <div *ngIf='productItem?.product_specific_price' class="discount-badge">{{productItem?.product_specific_price ? productItem?.product_specific_price?.discount_percent : null}}%
-        </div>
+  <div class="product-path-container">
+    <div class="product-path">{{productItem?.product_name}}</div>
+  </div>
 
-        <div *ngIf='productItem?.promotion_label' class="promotion-label">{{productItem?.promotion_label ? productItem?.promotion_label.title : null}}
+  <div class="product-main-container">
+    <div class="product-image-container">
+      <div class="product-main-image">
+        <lib-ngx-image-zoom
+        [thumbImage]=mainImage [fullImage]=mainImage [magnification]=2>
+        </lib-ngx-image-zoom>
+        <div class="image-badge-container">
+          <div *ngIf='productItem?.product_specific_price' class="discount-badge">{{productItem?.product_specific_price ? productItem?.product_specific_price?.discount_percent : null}}%
+          </div>
+
+          <div *ngIf='productItem?.promotion_label' class="promotion-label">{{productItem?.promotion_label ? productItem?.promotion_label.title : null}}
+          </div>
         </div>
       </div>
+    <div class="all-images-container" *ngIf='isInitImg; else otherColorImg'>
+      <div *ngFor='let image of (productItem?.images?.thickbox_default) ' class="all-images-border">
+        <div class="images-overlay" (click)="onExtraImgClick(image)"></div>
+        <img src="{{image}}" alt="" class="extra-image">
+      </div>
     </div>
-  <div class="all-images-container">
-    <div *ngFor='let image of (productItem?.images?.thickbox_default) ' class="all-images-border">
-      <div class="images-overlay" (click)="onExtraImgClick(image)"></div>
-      <img src="{{image}}" alt="" class="extra-image">
+
+    <ng-template #otherColorImg>
+        <div class="all-images-container">
+          <div *ngFor='let colorImage of otherColorData?.image' class="all-images-border">
+            <div class="images-overlay" (click)='onExtraImgClick(colorImage.image_size.thickbox_default)'></div>
+            <img src="{{colorImage.image_size.thickbox_default}}" alt="" class="extra-image">
+          </div>
+        </div>
+    </ng-template>
     </div>
-  </div>
-  </div>
-  <div class="product-info-container">
-    
-  </div>
+    <div class="product-info-container">
+      <app-product-info [productItem]='productItem' (colorData)='onOtherColorClick($event)'></app-product-info>
+    </div>
 </div>
 <router-outlet></router-outlet>

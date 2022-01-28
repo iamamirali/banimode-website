@@ -3,6 +3,7 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 import { SugessDatum } from 'src/app/models/suggestions.model';
 import { FlashDatum } from 'src/app/models/flash-sales.model';
 import { ActivatedRoute } from '@angular/router';
+import { IColorImage } from 'src/app/models/selectedColor.model';
 
 @Component({
   selector: 'app-product-page',
@@ -13,6 +14,8 @@ export class ProductPageComponent implements OnInit {
   productList : FlashDatum[] | SugessDatum[] = []
   productItem : FlashDatum | SugessDatum | undefined
   mainImage: string = ''
+  isInitImg: boolean = true
+  otherColorData: IColorImage | undefined
   
   constructor(private dataFetch : DataProccessService , private route : ActivatedRoute) { }
 
@@ -41,4 +44,9 @@ export class ProductPageComponent implements OnInit {
     this.mainImage = image
   }
 
+  onOtherColorClick(color: IColorImage) {
+    this.otherColorData = color
+    this.mainImage = color.image[0].image_size.thickbox_default
+    if(color) this.isInitImg = false
+  }
 }

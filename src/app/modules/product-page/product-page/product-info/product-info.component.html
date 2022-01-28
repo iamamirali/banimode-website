@@ -1,0 +1,56 @@
+<main class="main-container">
+    <div class="name-row">
+        <div class="name-container">
+            <h2 class="product-brand">{{productItem?.product_manufacturer_en_name}}</h2>
+            <h3 class="product-name">{{productItem?.product_name}}</h3>
+        </div>
+        <div class="intraction-btns">
+            <button class="btn-share"></button>
+            <button class="btn-like"></button>
+        </div>
+    </div>
+
+    <div *ngIf='productItem?.product_specific_price' class="discount-row">
+        <div class="initial-price">{{productItem?.product_price}}تومان</div>
+        <div *ngIf='productItem?.product_specific_price' class="discount-amount-container">
+            <span class="discount-title">تخفیف شما:</span>
+            <span class="discount-amount">{{productItem?.product_specific_price?.discount_amount}}</span>
+        </div>
+    </div>
+
+    <div class="price-row">
+        <h2 class="final-price">{{productItem?.product_specific_price?.specific_price}}تومان</h2>
+        <div class="wallet-gift-container"></div>
+    </div>
+
+    <div class="colors-row">
+        <div class="color-title-container">
+            <span class="color-title">رنگ:</span>
+            <span class="color">{{productItem?.color_name}}</span>
+            <div class="color-image-container">
+                <div class="color-item" *ngFor='let color of productItem?.all_colors'>
+                    <div class="color-item-overlay"></div>
+                        <img src="{{color.image[0].image_size.small_default}}" [ngClass]="{'selected-color' : selectedColor == color.name || (color.name == productItem?.color_name && !selectedColor)}" (click)='onColorClick(color)' alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="size-dropdown"></div>
+    <button class="btn-addtocart"></button>
+
+    <div class="services-row">
+        <a href="" class="service-link">
+            <img src="assets/icons/feature-icons/warranty.png" alt="" class="service-img">
+        </a>
+        <a href="" class="service-link">
+            <img src="assets/icons/feature-icons/original.png" alt="" class="service-img">
+        </a>
+        <a href="" class="service-link">
+            <img src="assets/icons/feature-icons/services.png" alt="" class="service-img">
+        </a>
+        <a href="" class="service-link">
+            <img src="assets/icons/feature-icons/fast.png" alt="" class="service-img">
+        </a>
+    </div>
+</main>

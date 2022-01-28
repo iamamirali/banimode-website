@@ -4,6 +4,7 @@ import { ProductPageRoutingModule } from './product-page-routing-module';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { ProductInfoComponent } from './product-page/product-info/product-info.component';
 
 
 
@@ -11,7 +12,8 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 @NgModule({
   declarations: [
-    ProductPageComponent
+    ProductPageComponent,
+    ProductInfoComponent
   ],
   imports: [
     CommonModule,

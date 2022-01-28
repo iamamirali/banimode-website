@@ -8,9 +8,24 @@
     }
 }
 
+.product-path-container {
+    background-color: $darkWhite;
+    width: 100%;
+    padding: 18px 0px;
+    margin-bottom: 18px;
+
+    .product-path {
+        color: $green;
+        font-size: 0.75rem;
+        margin-right: 16px;
+        font-family: 'iranyekan-bold';
+    }
+}
+
 .product-main-container {
     width: 1200px;
     margin: auto;
+    display: flex;
     
     .product-image-container {
         width: 50%;
