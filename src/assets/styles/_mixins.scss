@@ -83,3 +83,8 @@
   cursor: pointer;
   transition: color 0.3s;
 }
+
+@mixin orange-small-box {
+  background-color: $lightOrange;
+  color: $orange;
+}

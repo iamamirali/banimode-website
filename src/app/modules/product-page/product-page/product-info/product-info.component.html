@@ -5,34 +5,46 @@
             <h3 class="product-name">{{productItem?.product_name}}</h3>
         </div>
         <div class="intraction-btns">
-            <button class="btn-share"></button>
-            <button class="btn-like"></button>
+            <button class="btn-share"><i class="fas fa-share-alt share-icon"></i></button>
+            <button class="btn-like"><i class="far fa-heart like-icon"></i></button>
         </div>
     </div>
 
     <div *ngIf='productItem?.product_specific_price' class="discount-row">
-        <div class="initial-price">{{productItem?.product_price}}تومان</div>
+        <div class="initial-price">{{productItem?.product_price | number: '3.'}} تومان</div>
         <div *ngIf='productItem?.product_specific_price' class="discount-amount-container">
             <span class="discount-title">تخفیف شما:</span>
-            <span class="discount-amount">{{productItem?.product_specific_price?.discount_amount}}</span>
+            <span class="discount-amount">{{productItem?.product_specific_price?.discount_amount | number: '3.'}} تومان</span>
         </div>
     </div>
 
     <div class="price-row">
-        <h2 class="final-price">{{productItem?.product_specific_price?.specific_price}}تومان</h2>
-        <div class="wallet-gift-container"></div>
+        <h2 class="final-price">{{productItem?.product_specific_price?.specific_price | number: '3.'}} تومان</h2>
+        <div class="wallet-gift-container">
+            <i class="fas fa-gift"></i>
+            <span class="wallet-gift-percent">5%</span>
+            <span class="wallet-gift-text">شارژ کیف پول</span>
+            <i class="far fa-question-circle wallet-gift-question"></i>
+        </div>
     </div>
 
     <div class="colors-row">
         <div class="color-title-container">
             <span class="color-title">رنگ:</span>
-            <span class="color">{{productItem?.color_name}}</span>
-            <div class="color-image-container">
-                <div class="color-item" *ngFor='let color of productItem?.all_colors'>
-                    <div class="color-item-overlay"></div>
-                        <img src="{{color.image[0].image_size.small_default}}" [ngClass]="{'selected-color' : selectedColor == color.name || (color.name == productItem?.color_name && !selectedColor)}" (click)='onColorClick(color)' alt="">
+            <span class="color">( {{productItem?.color_name}} )</span>
+        </div>
+        <div class="color-image-container">
+            <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='colorSlideConfig'>
+                <div class="slide" ngxSlickItem *ngFor='let color of productItem?.all_colors'>
+                    <div class="color-item">
+                        <div class="color-item-overlay" (click)='onColorClick(color)'></div>
+                        <!-- <img src="{{color.image[0].image_size.small_default}}" class="color-img" [ngClass]="{'selected-color' : selectedColor == color.name || (color.name == productItem?.color_name && !selectedColor)}" alt=""> -->
+                        <div class="product-img" [style.background-image]="'url('+color.image[0].image_size.small_default+')'" [ngClass]="{'selected-color' : selectedColor == color.name || (color.name == productItem?.color_name && !selectedColor)}">
+                            <div class="color-name">{{color.name}}</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </ngx-slick-carousel>
         </div>
     </div>
 
