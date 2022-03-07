@@ -6,7 +6,7 @@
     <div class="product-image-container">
       <div class="product-main-image">
         <lib-ngx-image-zoom
-        [thumbImage]=mainImage [fullImage]=mainImage [magnification]=2>
+        [thumbImage]=mainImage [fullImage]=mainImage [magnification]=1.5 [style.background-image]="'url('+mainImage+')'">
         </lib-ngx-image-zoom>
         <div class="image-badge-container">
           <div *ngIf='productItem?.product_specific_price' class="discount-badge">{{productItem?.product_specific_price ? productItem?.product_specific_price?.discount_percent : null}}%

@@ -22,7 +22,7 @@ export class HomeSuggestionsComponent implements OnInit {
     "prevArrow": '<div style=\'position: absolute; top: 45%; left: -10px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
     "autoplay": true,
     "autoplaySpeed": 5000,
-    "infinite": true,
+    "infinite": false,
     "rtl": true,
   }
 

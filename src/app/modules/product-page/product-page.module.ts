@@ -5,6 +5,8 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { ProductInfoComponent } from './product-page/product-info/product-info.component';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +21,9 @@ import { ProductInfoComponent } from './product-page/product-info/product-info.c
     CommonModule,
     ProductPageRoutingModule,
     SlickCarouselModule,
-    NgxImageZoomModule
+    NgxImageZoomModule,
+    AngularMaterialModule,
+    FormsModule
   ],
   exports: [
     ProductPageComponent

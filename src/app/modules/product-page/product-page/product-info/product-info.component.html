@@ -38,7 +38,6 @@
                 <div class="slide" ngxSlickItem *ngFor='let color of productItem?.all_colors'>
                     <div class="color-item">
                         <div class="color-item-overlay" (click)='onColorClick(color)'></div>
-                        <!-- <img src="{{color.image[0].image_size.small_default}}" class="color-img" [ngClass]="{'selected-color' : selectedColor == color.name || (color.name == productItem?.color_name && !selectedColor)}" alt=""> -->
                         <div class="product-img" [style.background-image]="'url('+color.image[0].image_size.small_default+')'" [ngClass]="{'selected-color' : selectedColor == color.name || (color.name == productItem?.color_name && !selectedColor)}">
                             <div class="color-name">{{color.name}}</div>
                         </div>
@@ -48,7 +47,22 @@
         </div>
     </div>
 
-    <div class="size-dropdown"></div>
+    <div class="size-row">
+        <div class="size-list">
+            <mat-form-field appearance="fill">
+                <mat-label>انتخاب سایز</mat-label>
+                <mat-select [(ngModel)]="selectedSize" name="size">
+                    <mat-option *ngFor="let size of productItem?.size" [value]="size.name">
+                        {{size.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="size-info">
+            <button class="btn-size-info" (click)='openDialog()'>سایز من چنده؟</button>
+        </div>
+    </div>
     <button class="btn-addtocart"></button>
 
     <div class="services-row">

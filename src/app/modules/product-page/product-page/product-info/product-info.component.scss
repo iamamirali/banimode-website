@@ -214,4 +214,37 @@
             }
         }
     }
+
+    .size-row {
+        ::ng-deep .mat-form-field {
+            text-align: right;
+
+            .mat-form-field-underline {
+                display: none;
+            }
+        }
+
+        ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+            border-radius: 8px;
+            border: 1px solid $gray;
+            background: none;
+            font-family: 'iranyekan';
+            transition: border-color 0.3s;
+        }
+        ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex:hover {
+            border-color: $green;
+
+            .mat-select-arrow {
+                color: $green;
+            }
+        }
+        ::ng-deep .mat-select-arrow {
+            border: {
+                left-width: 8px;
+                right-width: 8px;
+                top-width: 8px;
+            }
+            transition: color 0.3s;
+        }
+    }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FlashDatum } from 'src/app/models/flash-sales.model';
 import { IColorImage } from 'src/app/models/selectedColor.model';
 import { SugessDatum } from 'src/app/models/suggestions.model';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductPageComponent } from '../product-page.component';
 
 @Component({
   selector: 'app-product-info',
@@ -22,19 +24,23 @@ export class ProductInfoComponent implements OnInit {
   }
 
   selectedColor: string = ''
+  selectedSize: string = ''
 
   @Input() productItem: FlashDatum | SugessDatum | undefined
   @Output() colorData = new EventEmitter<IColorImage>()
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
   
   ngOnInit(): void {
+    console.log(this.productItem);
+  }
+
+  openDialog() {
+    this.dialog.open(ProductPageComponent)
   }
 
   onColorClick(color: IColorImage) {
     this.colorData.emit(color)
     this.selectedColor = color.name
-    console.log(this.selectedColor);
-    
   }
 }
