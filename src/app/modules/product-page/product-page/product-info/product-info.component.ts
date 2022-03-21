@@ -4,6 +4,7 @@ import { IColorImage } from 'src/app/models/selectedColor.model';
 import { SugessDatum } from 'src/app/models/suggestions.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductPageComponent } from '../product-page.component';
+import { SizeInfoComponent } from '../size-info/size-info.component';
 
 @Component({
   selector: 'app-product-info',
@@ -36,7 +37,7 @@ export class ProductInfoComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(ProductPageComponent)
+    this.dialog.open(SizeInfoComponent)
   }
 
   onColorClick(color: IColorImage) {

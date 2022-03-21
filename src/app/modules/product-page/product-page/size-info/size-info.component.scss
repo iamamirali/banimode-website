@@ -1,0 +1,59 @@
+@import 'variables';
+@import "mixins";
+
+.size-info-container {
+    direction: rtl;
+
+    .mat-dialog-actions {
+        direction: ltr;
+
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            margin : {
+                left: 8px;
+                top: -24px;
+            }
+            i {
+                color: $gray;
+                transition: 0.3s color;
+            }
+        }
+        .btn-close > i:hover {
+            color: $lightBlack;
+        }
+    }
+    .mat-dialog-content {
+        padding: 16px 36px;
+        max-height: 80vh;
+    }
+
+    .size-info-tiplist {
+        margin: {
+            bottom: 24px;
+            right: 48px;
+        }
+    }
+    
+    ::ng-deep .mat-elevation-z8 {
+        width: 60vw;
+        font-family: 'iranyekan';
+        text-align: center;
+    }
+    ::ng-deep .mat-header-cell {
+        text-align: center !important;
+        background-color: $lightBlack;
+        font: {
+            size: 1rem;
+            weight: bold;
+        }
+        color: white;
+    }
+    ::ng-deep .mat-header-cell:first-of-type {
+        padding-left: 0 !important;
+    }
+    ::ng-deep .mat-cell:first-of-type {
+        padding-left: 0 !important;
+    }
+}

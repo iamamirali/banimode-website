@@ -7,6 +7,7 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { ProductInfoComponent } from './product-page/product-info/product-info.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { FormsModule } from '@angular/forms';
+import { SizeInfoComponent } from './product-page/size-info/size-info.component';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ProductPageComponent,
-    ProductInfoComponent
+    ProductInfoComponent,
+    SizeInfoComponent
   ],
   imports: [
     CommonModule,
