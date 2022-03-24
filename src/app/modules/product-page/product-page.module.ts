@@ -8,6 +8,8 @@ import { ProductInfoComponent } from './product-page/product-info/product-info.c
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { FormsModule } from '@angular/forms';
 import { SizeInfoComponent } from './product-page/size-info/size-info.component';
+import { ProductTabInfoComponent } from './product-tab-info/product-tab-info.component';
+import { ProductFeaturesTabComponent } from './product-tab-info/product-features-tab/product-features-tab.component';
 
 
 
@@ -17,7 +19,9 @@ import { SizeInfoComponent } from './product-page/size-info/size-info.component'
   declarations: [
     ProductPageComponent,
     ProductInfoComponent,
-    SizeInfoComponent
+    SizeInfoComponent,
+    ProductTabInfoComponent,
+    ProductFeaturesTabComponent
   ],
   imports: [
     CommonModule,

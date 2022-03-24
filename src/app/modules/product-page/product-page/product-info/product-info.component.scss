@@ -123,6 +123,24 @@
                 transform: scaleX(-1);
                 margin-right: 4px;
                 top: 8px;
+                cursor: pointer;
+            }
+            .wallet-gift-info {
+                display: none;
+            }
+            .wallet-gift-question:hover ~ .wallet-gift-info {
+                display: block;
+                position: absolute;
+                top: 48px;
+                right: 0px;
+                z-index: 5;
+                width: 430px;
+                padding: 12px 6px;
+                background-color: $darkGray;
+                font-size: 12px;
+                border-radius: 18px;
+                border-top-right-radius: 0px;
+                color: white;
             }
         }
     }
@@ -290,12 +308,10 @@
 
     }
     .btn-addtocart {
-        background-color: $green;
-        color: white;
+        @include green-btn;
         width: 73%;
-        padding: 14px 0px;
+        padding: 16px 0px;
         font-size: 1rem;
-        border: none;
         border-radius: 8px;
         display: flex;
         justify-content: center;
@@ -304,21 +320,25 @@
             margin-left: 16px;
         }
     }
+    .btn-addtocart:hover {
+        background-color: $darkGreen;
+    }
     
     .services-row {
         display: flex;
         justify-content: space-between;
+        margin-top: 64px;
 
         .service-link {
             width: 24%;
 
             .service-img {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
                 object-fit: contain;
             }
             p {
-                margin: 64px 60px -48px 0px;
+                margin: 0px 53px -48px 0px;
                 font-size: 13px;
             }
         }
