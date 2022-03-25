@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'mixins';
+
+main {
+    margin-bottom: 36px;
+    ::ng-deep .mat-tab-labels {
+        padding: 12px 0px;
+        .mat-tab-label {
+            font: {
+                size: 1rem;
+                weight: bold;
+                family: 'iranyekan'
+            }
+        }
+    }
+
+    ::ng-deep .mat-tab-body-wrapper {
+        background: $milky;
+        font-family: 'iranyekan';
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        
+        .mat-tab-body {
+            padding: 36px 28px;
+        }
+    }
+}

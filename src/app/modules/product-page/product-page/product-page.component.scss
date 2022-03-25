@@ -25,7 +25,11 @@
 .product-main-container {
     width: 1200px;
     margin: auto;
-    display: flex;
+    
+    .product-container {
+        display: flex;
+        margin-bottom: 36px;
+    }
     
     .product-image-container {
         width: 50%;

@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { SizeInfoComponent } from './product-page/size-info/size-info.component';
 import { ProductTabInfoComponent } from './product-tab-info/product-tab-info.component';
 import { ProductFeaturesTabComponent } from './product-tab-info/product-features-tab/product-features-tab.component';
+import { ProductSpecsTabComponent } from './product-tab-info/product-specs-tab/product-specs-tab.component';
+import { ProductCommentsTabComponent } from './product-tab-info/product-comments-tab/product-comments-tab.component';
 
 
 
@@ -21,7 +23,9 @@ import { ProductFeaturesTabComponent } from './product-tab-info/product-features
     ProductInfoComponent,
     SizeInfoComponent,
     ProductTabInfoComponent,
-    ProductFeaturesTabComponent
+    ProductFeaturesTabComponent,
+    ProductSpecsTabComponent,
+    ProductCommentsTabComponent
   ],
   imports: [
     CommonModule,
