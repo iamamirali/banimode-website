@@ -1,9 +1,13 @@
 <main>
-    <mat-tab-group>
+    <mat-tab-group (selectedTabChange)="onCommentClick()">
         <mat-tab label="ویژگی ها"> 
             <app-product-features-tab></app-product-features-tab>
         </mat-tab>
         <mat-tab label="مشخصات محصول"> <app-product-specs-tab></app-product-specs-tab> </mat-tab>
-        <mat-tab label="نظرات کاربران"> <app-product-comments-tab></app-product-comments-tab> </mat-tab>
+        <mat-tab label="نظرات کاربران"> 
+            <div *ngIf='isCommentClicked'>
+                <app-product-comments-tab ></app-product-comments-tab>
+            </div>
+        </mat-tab>
     </mat-tab-group>  
 </main>

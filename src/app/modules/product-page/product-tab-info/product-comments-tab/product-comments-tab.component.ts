@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IComment } from 'src/app/models/comments-model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 
 @Component({
@@ -8,11 +9,18 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 })
 export class ProductCommentsTabComponent implements OnInit {
 
+  commentsList: IComment[] = []
+
   constructor(private dataProcces : DataProccessService) { }
 
   ngOnInit(): void {
     this.dataProcces.getComments().subscribe((data) => {
       console.log(data);
+      this.commentsList = data.data;
     })
+  }
+
+  dateLocalizer(date : Date) : String {
+    return new Date(date).toLocaleDateString('fa-IR')
   }
 }

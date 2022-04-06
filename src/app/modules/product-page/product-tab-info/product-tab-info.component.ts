@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductTabInfoComponent implements OnInit {
 
+  isCommentClicked: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCommentClick() {
+    this.isCommentClicked = true
+    console.log(this.isCommentClicked);
   }
 
 }

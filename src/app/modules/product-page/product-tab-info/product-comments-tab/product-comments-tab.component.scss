@@ -1,0 +1,83 @@
+@import 'variables';
+@import 'mixins';
+
+#main {
+    max-width: 800px;
+    .comment-container {
+        .comment-item {
+            margin: 48px 12px;
+            .user-icon {
+                position: absolute;
+                i {
+                    font-size: 1.5rem;
+                    padding: 10px;
+                    background-color: $gray;
+                    color: $milky;
+                    border-radius: 50%;
+                }
+            }
+
+            .comment-content {
+                margin-right: 85px;
+                border-bottom: 1px solid $darkWhite;
+                .title-row {
+                    display: flex;
+                    width: fit-content;
+                    place-items: flex-end;
+                    margin-bottom: 24px;
+
+                    .comment-title {
+                        font-size: 1rem;
+                        color: $lightBlack;
+                        margin-left: 36px;
+                    }
+                    .username {
+                        color: $gray;
+                        margin-left: 36px;
+                        font: {
+                            family: 'iranyekan-bold';
+                            weight: 100;
+                            size: 14px;
+                        }
+                    }
+                    .comment-date {
+                        font-size: 14px;
+                    }
+                }
+                .comment-text {
+                    font-size: 14px;
+                    color: $darkGray;
+                    margin-bottom: 24px;
+                    .comment-answer {
+                        color: $green;
+                        margin: {
+                            right: 36px;
+                            top: 18px;
+                        }
+                    }
+                }
+                .user-reaction-container {
+                    margin-bottom: 36px;
+                    p {
+                        font: {
+                            size: 14px;
+                            family: 'iranyekan-bold';
+                        }
+                    }
+                    .like-icon {
+                        color: white;
+                        background-color: $green;
+                        padding: 8px;
+                        border-radius: 50%;
+                        font-size: 16px;
+                        margin-left: 8px;
+                    }
+                    .dislike-icon {
+                        @extend .like-icon;
+                        background-color: $orange;
+                    }
+                }
+            }
+        }
+    }
+}

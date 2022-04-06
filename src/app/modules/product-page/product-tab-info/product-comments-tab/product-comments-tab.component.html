@@ -1,15 +1,33 @@
-<main class="comment-container">
-    <div class="title-row">
-        <h3 class="comment-title"></h3>
-        <h4 class="username"></h4>
-        <p class="comment-date"></p>
-    </div>
+<main id="main">
+    <div class="comment-container">
+        <div *ngFor='let comment of commentsList' class="comment-item">
+            <div class="user-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
 
-    <div class="comment-content">
-        <div class="comment-answer"></div>
-    </div>
-
-    <div class="user-reaction-container">
-        <i class="fas fa-thumbs-up"></i>
+            <div class="comment-content">
+                <div class="title-row">
+                    <h3 class="comment-title">{{comment.title}}</h3>
+                    <h4 class="username">({{comment.customer_name}})</h4>
+                    <p class="comment-date">{{dateLocalizer(comment.date_add)}}</p>
+                </div>
+                
+                <div class="comment-text">
+                    <p>{{comment.content}}</p>
+                    <div *ngIf='comment.answer' class="comment-answer">پاسخ: {{comment.answer}}</div>
+                </div>
+                
+                <div class="user-reaction-container">
+                    <p *ngIf='comment.rate == 1'>
+                        <i class="fas fa-thumbs-up like-icon"></i>
+                        خرید این محصول را حتما پیشنهاد میکنم.
+                    </p>
+                    <p *ngIf='comment.rate == 2'>
+                        <i class="fas fa-thumbs-down dislike-icon"></i>
+                        خرید این محصول را پیشنهاد نمیکنم.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
