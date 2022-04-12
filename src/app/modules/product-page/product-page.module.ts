@@ -12,6 +12,7 @@ import { ProductTabInfoComponent } from './product-tab-info/product-tab-info.com
 import { ProductFeaturesTabComponent } from './product-tab-info/product-features-tab/product-features-tab.component';
 import { ProductSpecsTabComponent } from './product-tab-info/product-specs-tab/product-specs-tab.component';
 import { ProductCommentsTabComponent } from './product-tab-info/product-comments-tab/product-comments-tab.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,7 @@ import { ProductCommentsTabComponent } from './product-tab-info/product-comments
     ProductTabInfoComponent,
     ProductFeaturesTabComponent,
     ProductSpecsTabComponent,
-    ProductCommentsTabComponent
+    ProductCommentsTabComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +34,8 @@ import { ProductCommentsTabComponent } from './product-tab-info/product-comments
     SlickCarouselModule,
     NgxImageZoomModule,
     AngularMaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ProductPageComponent

@@ -5,7 +5,7 @@
     max-width: 800px;
     .comment-container {
         .comment-item {
-            margin: 48px 12px;
+            margin: 36px 12px;
             .user-icon {
                 position: absolute;
                 i {
@@ -65,12 +65,7 @@
                         }
                     }
                     .like-icon {
-                        color: white;
-                        background-color: $green;
-                        padding: 8px;
-                        border-radius: 50%;
-                        font-size: 16px;
-                        margin-left: 8px;
+                        @include like-icon;
                     }
                     .dislike-icon {
                         @extend .like-icon;
@@ -79,5 +74,76 @@
                 }
             }
         }
+    }
+
+    .comment-form-container {
+        margin-right: 100px;
+        .comment-form-title {
+            .subtitle {
+                font-size: 14px;
+                color: $gray;
+                margin-top: 14px;
+            }
+        }
+
+        form {
+            .titleInput {
+                border: none;
+                width: 90%;
+                border-radius: 12px;
+                padding: 14px;
+                font-size: 15px;
+                margin: 36px 0px 24px 0px;
+                display: block;
+            }
+            .titleInput:focus, .bodyInput:focus {
+                outline: none;
+            }
+            .bodyInput {
+                @extend .titleInput;
+                margin-top: 0px;
+                height: 95px;
+                max-width: 90%;
+            }
+
+            .suggestion-container {
+                display: flex;
+                justify-content: space-between;
+                width: 95%;
+                .btn-suggest {
+                    background: none;
+                    border: none;
+                    color: $darkGray;
+                    i {
+                        @include like-icon;
+                        font-size: 14px;
+                        padding: 6px;
+                        background-color: $gray;
+                        transition: 0.2s background;
+                    }
+                }
+                .btn-notsuggest {
+                    @extend .btn-suggest;
+                    margin-right: 24px;
+                    i {
+                        @include like-icon;
+                        padding: 6px;
+                        background-color: $gray;
+                        font-size: 14px;
+                        transition: 0.2s background;
+                    }
+                }
+                .btn-submit {
+                    @include green-btn;
+                    border-radius: 12px;
+                    padding: 16px 40px;
+                    font-size: 14px;
+                }
+                .btn-submit:hover {
+                    background-color: $darkGreen;
+                }
+            }
+        }
+
     }
 }
