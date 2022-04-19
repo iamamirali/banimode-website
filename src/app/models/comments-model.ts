@@ -17,3 +17,11 @@
         data: IComment[];
     }
 
+    export interface ICommentData {
+        id_product: number,
+        title: string,
+        content: string,
+        rate: number,
+        grade: number
+    }
+

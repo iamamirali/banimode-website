@@ -10,7 +10,7 @@ import { IPhoneNumber, IPhoneNumberOnce} from '../models/phoneNumber.model';
 import { IVerifCode } from '../models/verifCode.model';
 import { VerifResponseRootObject } from '../models/verifCode.model';
 import { IPassword } from '../models/password.model';
-import { CommentRootObject, IComment } from '../models/comments-model';
+import { CommentRootObject, IComment, ICommentData } from '../models/comments-model';
 
 const baseURL:string = environment.baseURL
 @Injectable({
@@ -57,11 +57,12 @@ export class DataProccessService {
   sendPassword(password : IPassword) : Observable<IPassword> {
     return this.http.post<IPassword>(`${baseURL}/v2/profile/set-password`, password)
   }
-  // sendEmail(email: FormData) : Observable<HttpResponse<any>> {
-  //   return this.http.post('https://www.banimode.com/module/banitemplate/registerNewsletter', email, {observe: "response"})
-  // }
 
-  getComments() : Observable<CommentRootObject> {
-    return this.http.get<CommentRootObject>(`${baseURL}/v1/products/36547/comments`)
+  getComments(id:number) : Observable<CommentRootObject> {
+    return this.http.get<CommentRootObject>(`${baseURL}/v1/products/${id}/comments`)
+  }
+
+  sendComment(formData: ICommentData, id:number): Observable<HttpResponse<any>> {
+    return this.http.post<ICommentData>(`${baseURL}/v1/products/${id}/comments`, formData, {observe:'response'})
   }
 }

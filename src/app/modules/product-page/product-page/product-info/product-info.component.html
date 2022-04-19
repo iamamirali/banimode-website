@@ -19,7 +19,7 @@
     </div>
 
     <div class="price-row">
-        <h2 class="final-price">{{productItem?.product_specific_price?.specific_price | number: '3.'}} تومان</h2>
+        <h2 class="final-price">{{productItem?.product_specific_price ? (productItem?.product_specific_price?.specific_price | number: '3.') : (productItem?.product_price | number: '3.')}} تومان</h2>
         <div class="wallet-gift-container">
             <i class="fas fa-gift"></i>
             <span class="wallet-gift-percent">5%</span>

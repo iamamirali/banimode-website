@@ -53,7 +53,6 @@
         display: flex;
         margin: {
             top: 28px;
-            bottom: 28px;
         }
         
         .initial-price {
@@ -89,7 +88,7 @@
     .price-row {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 24px;
+        margin: 28px 0px;
         
         .final-price {
             color: $green;

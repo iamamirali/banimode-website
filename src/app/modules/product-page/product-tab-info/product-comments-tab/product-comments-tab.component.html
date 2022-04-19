@@ -1,5 +1,5 @@
 <main id="main">
-    <div class="comment-container">
+    <div *ngIf='commentsList else noComment' class="comment-container">
         <div *ngFor='let comment of commentsList' class="comment-item">
             <div class="user-icon">
                 <i class="fa-solid fa-user"></i>
@@ -31,21 +31,25 @@
         </div>
     </div>
 
+    <ng-template #noComment>
+        اولین نفر باشید که نظر می دهید.
+    </ng-template>
+
     <div class="comment-form-container">
         <div class="comment-form-title">
             <h3 class="title">ثبت نظر</h3>
             <p class="subtitle">لطفا قبل از نوشتن نظر خود در مورد این محصول، قوانین و ضوابط را مطالعه کنید.</p>
         </div>
-        <form [formGroup]='commentForm'>
+        <form [formGroup]='commentForm' (ngSubmit)='onSubmitForm()'>
             <input type="text" name="title" id="title" formControlName='commentTitle' placeholder="عنوان نظر" class="titleInput">
             <textarea name="body" id="body" cols="30" rows="10" formControlName='commentBody' placeholder='نظر خود را بنویسید...' class="bodyInput"></textarea>
 
             <div class="suggestion-container">
-                <button class="btn-suggest" (click)='onSuggestionClick(1)'>
+                <button type="button" class="btn-suggest" (click)='onSuggestionClick(1)'>
                     <i class="fas fa-thumbs-up like-icon" [ngStyle]="{'background-color': reactionStatus==1 ? '#00bf6f' : 'rgb(141, 141, 141)'}"></i>
                     خرید این محصول را پیشنهاد میکنم. 
                 </button>
-                <button class="btn-notsuggest" (click)='onSuggestionClick(2)'>
+                <button type="button" class="btn-notsuggest" (click)='onSuggestionClick(2)'>
                     <i class="fas fa-thumbs-down dislike-icon" [ngStyle]="{'background-color': reactionStatus==2 ? '#f16422' : 'rgb(141, 141, 141)'}"></i>
                     خرید این محصول را پیشنهاد نمیکنم.
                 </button>
