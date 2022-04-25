@@ -16,3 +16,4 @@ Angular libraries used:
 - Angular material
 - ngx-slick-carousel
 - ng-otp-input
+- ngx-image-zoom
