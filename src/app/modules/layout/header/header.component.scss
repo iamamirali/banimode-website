@@ -9,6 +9,14 @@
     from {top: 60px;}
     to {top: 100px;}
 }
+@keyframes show-burger-navbar {
+    from {top: -100px;}
+    to {top: 0px;}
+}
+@keyframes hide-burger-navbar {
+    from {top: 0px;}
+    to {top: -100px;}
+}
 
 main {
     width: 100%;
@@ -159,7 +167,7 @@ main {
                 .userbox {
                     cursor: pointer;
                     transition: color 0.3s;
-                    color: black;
+                    // color: black;
                     display: flex;
 
                     p{
@@ -270,6 +278,172 @@ main {
             
             img{
                 width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        .header-container {
+            max-width: 480px;
+            .top-navbar {
+                padding-top: 24px;
+                
+                .cart-container {
+                    display: none;
+                }
+                
+                .burgernav-container {
+                    .btn-burgernav {
+                        background: $green;
+                        border: none;
+                        color: white;
+                        padding: 6px 6px 0px 6px;
+                        margin-right: 18px;
+                        font-size: 1.2rem;
+                        border-radius: 12px;
+                    }
+
+                    .navbar-burger-overlay {
+                        height: 100vh;
+                        background-color: #00bf6fc4;
+                        z-index: 50;
+                        position: absolute;
+                        top: 0;
+                        right: -400px;
+                        padding: 10px 0px;
+                        width: 60%;
+                        transition: 0.3s right;
+
+                        .searchbar-row {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            padding-left: 4px;
+                            .btn-close-navbar {
+                                width: 36px;
+                                height: 34px;
+                                border-radius: 50%;
+                                border-bottom-right-radius: 0;
+                                border-top-right-radius: 0;
+                                border: none;
+                                font-size: 26px;
+                                color: $tomatoRed;
+                                background-color: white;
+                                margin: {
+                                    right: -6px;
+                                }
+                            }
+                            .burger-searchbar {
+                                background-color: white;
+                                border-radius: 24px;
+                                width: 83%;
+                                position: relative;
+                                display: flex;
+                            i {
+                                position: absolute;
+                                top: 8px;
+                                right: 10px;
+                                font-size: 18px;
+                            }
+                            
+                            .searchbar {
+                                background: none;
+                                border: none;
+                                width: 100%;
+                                margin-right: 34px;
+                                font-size: 0.65rem;
+                                padding: 10px 0px;
+                                outline: none;
+                            }
+                        }
+                    }
+                        .burger-cart-container {
+                            background: white;
+                            color: $tomatoRed;
+                            position: relative;
+                            font: {
+                                size: 18px;
+                                family: 'iranyekan-bold'
+                            }
+                            padding: 4px 58px;
+                            margin: 18px 4px;
+                            border-radius: 24px;
+                            transition: 0.3s all;
+
+                            i {
+                                font-size: 22px;
+                                right: 16px;
+                                position: absolute;
+                                top: 5px;
+                            }
+                        }
+                        .burger-cart-container:hover {
+                            background-color: $tomatoRed;
+                            color: white;
+                        }
+                        .burger-wallet-container {
+                            @extend .burger-cart-container;
+                        }
+                        .burger-favorites-container {
+                            @extend .burger-cart-container;
+                        }
+                    }
+                }
+                
+                .loggedin-items {
+                    display: block;
+                    width: initial;
+                    margin-left: 0;
+                    .favorites, .wallet-container {
+                        display: none;
+                    }
+                    .userbox-container {
+                        display: block;
+                        margin-bottom: 8px;
+                        margin-right: -64px;
+                        .userbox {
+                            color: $tomatoRed;
+                            i {
+                                font-size: 1.9rem;
+                            }
+                            i:hover {
+                                color: $tomatoRed;
+                            }
+                            p {
+                                display: none;
+                            }
+                            .user-arrow {
+                                margin: {
+                                    top: 5px;
+                                    right: 8px;
+                                }
+                                font-size: 1.2rem;
+                            }
+                        }
+                        .userbox:hover {
+                            color: $tomatoRed;
+                        }
+                    }
+                }
+                
+                .searchbar-container {
+                    display: none;
+                }
+                .header-brand {
+                    width: 40%;
+                    margin-left: 24px;
+                    margin-top: 6px;
+                }
+                .btn-login {
+                    margin-right: -24px;
+                    font-size: 12px;
+                    padding: 10px 18px;
+                }
+            }
+            .navlinks-container {
+                display: none;
             }
         }
     }

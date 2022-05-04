@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { StateProccessService } from 'src/app/services/state-proccess.service';
 import { LoginBoxComponent } from '../../shared/login-box/login-box.component';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -14,8 +15,14 @@ export class HeaderComponent implements OnInit {
   showHoverBox : boolean = false
   showClickBox : boolean = false
   showCartBox : boolean = false
+  screenWidth: number = window.innerWidth
+  showBurgerNavbar: boolean = false
 
   constructor(private dialog : MatDialog, private stateService : StateProccessService) { }
+
+  @HostListener('window:resize', ['$event']) onResize() {
+    this.screenWidth = window.innerWidth;
+}
 
   ngOnInit(): void {
     this.checkLogin()
@@ -34,7 +41,7 @@ export class HeaderComponent implements OnInit {
   onBoxHover() {
     this.showHoverBox = true
   }
-  onBoxClick() {
+  onUserBoxClick() {
     this.showClickBox = !this.showClickBox
   }
   onCartClick() {

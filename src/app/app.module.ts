@@ -19,6 +19,8 @@ import { SharedModule } from './modules/shared/shared.module';
 import { LoginBoxComponent } from './modules/shared/login-box/login-box.component';
 import { ProductPageModule } from './modules/product-page/product-page.module';
 import { RouterModule } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,13 @@ import { RouterModule } from '@angular/router';
     ProductPageModule,
     SharedModule,
     SlickCarouselModule,
-    NgxImageZoomModule
+    NgxImageZoomModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     {

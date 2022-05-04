@@ -2,6 +2,38 @@
     <button class="box-closer" [ngClass]="{'show-box-closer' : showCartBox || showClickBox}" (click)='onBoxCloserClick()'></button>
     <div class="header-container">
         <div class="top-navbar">
+            <div class="burgernav-container" *ngIf='screenWidth < 600'>
+                <div>
+                    <button type="button" class="btn-burgernav" (click)='showBurgerNavbar = true'>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                
+                <div class="navbar-burger-overlay" [style.right]='showBurgerNavbar ? "0px" : "-400px"'>
+                    <div class="searchbar-row">
+                        <button class="btn-close-navbar" (click)='showBurgerNavbar = !showBurgerNavbar'><i class="fas fa-times"></i></button>
+                        <div class="burger-searchbar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" name="searchbar" id="" class="searchbar" placeholder="جستجو">
+                        </div>
+                    </div>
+                    <div class="burger-cart-container">
+                        <i class="fas fa-shopping-bag cart-icon"></i>
+                        سبد خرید
+                    </div>
+                    <div class="loggedin-items" *ngIf='isLoggedin'>
+                        <div class="burger-wallet-container">
+                            <i class="fas fa-wallet wallet-icon"></i>
+                            <p>تراکنش ها</p>
+                        </div>
+                        <div class="burger-favorites-container">
+                            <i class="fas fa-heart favorites"></i>
+                            علاقه مندی ها
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="cart-container">
                 <i class="fas fa-shopping-bag cart-icon" (click)="onCartClick()"></i>
                 <div class="cart-box" [ngClass]="{'show-cart' : showCartBox}">
@@ -14,7 +46,7 @@
             </div>
 
             <div class="loggedin-items" *ngIf='isLoggedin'>
-                <i class="far fa-heart"></i>
+                <i class="far fa-heart favorites"></i>
                 <div class="wallet-container">
                     <i class="fas fa-wallet wallet-icon"></i>
                     <div class="wallet-hover-box">
@@ -23,7 +55,7 @@
                 </div>
 
                 <div class="userbox-container">
-                    <div class="userbox" (click)='onBoxClick()'>
+                    <div class="userbox" (click)='onUserBoxClick()'>
                         <i class="far fa-user-circle"></i>
                         <p>بانی مدی عزیز</p>
                         <i class="fas fa-chevron-down user-arrow" tabindex="0"></i>
@@ -49,6 +81,6 @@
             </a>
         </div>
 
-        <app-navlinks></app-navlinks>
+        <app-navlinks class='navlinks-container'></app-navlinks>
     </div>
 </main>
