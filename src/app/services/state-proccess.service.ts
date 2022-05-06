@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Injectable, HostListener } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,5 @@ export class StateProccessService {
   deleteToken() {
     localStorage.removeItem("token")
   }
-
   constructor() { }
 }
