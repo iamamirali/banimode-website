@@ -23,3 +23,13 @@
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+    .home-category {
+        display: grid;
+        grid-gap: 18px 0px;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 480px;
+        margin-top: 56px;
+    }
+}

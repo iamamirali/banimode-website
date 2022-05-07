@@ -232,3 +232,36 @@
   }
 
 }
+
+@media screen and (max-width: 480px) {
+  .flash-sales-container {
+    text-align: center;
+    max-width: 480px;
+    margin-top: 48px;
+
+    .flash-sales-header {
+      max-width: 480px;
+      display: block;
+
+      .timer-container {
+        display: block;
+        margin-top: 12px;
+
+        .timer-title {
+          margin: {
+            left: 0px;
+            top: 0px;
+          }
+          font-size: 18px;
+        }
+
+        .timer {
+          margin-top: 8px;
+          div {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+}
