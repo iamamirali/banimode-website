@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener} from '@angular/core';
 import { FlashDatum } from 'src/app/models/flash-sales.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 
@@ -18,6 +18,7 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
   hour: number | undefined
   minute: number | undefined
   second: number | undefined
+  screenWidth: number = window.innerWidth
 
   bannerSlideConfig = {
     "slidesToShow": 4,
@@ -31,13 +32,24 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
     "rtl": true,
   }
   
+  mobileSlideConfig = {
+    ...this.bannerSlideConfig,
+    "slidesToShow": 1,
+    "slidesToScroll": 1,
+    "nextArrow": '<div style=\'position: absolute; top: 35%; right: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
+    "prevArrow": '<div style=\'position: absolute; top: 35%; left: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
+  }
+  
   constructor(private fetchData : DataProccessService) { }
 
   ngOnInit() {
     this.getFlashSales()
   }
 
-  
+  @HostListener('window:resize', ['$event']) onResize() {
+    this.screenWidth = window.innerWidth;
+  }
+
   getFlashSales() {
     this.fetchData.getFlashSales().subscribe((data)=> {
       this.flashSales = data.data.data

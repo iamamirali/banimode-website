@@ -198,3 +198,41 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .suggestions-container {
+    text-align: center;
+    max-width: 480px;
+    margin-top: 48px;
+
+    .suggestions-slider {
+      .product-card {
+        margin-bottom: 24px;
+        .product-img-container {
+          .product-img {
+            width: 85%;
+            margin: auto;
+          }
+          .discount-badge {
+          left: 44px;
+          font-size: 18px;
+        }
+      }
+        .product-content {
+          width: 75%;
+          margin: auto;
+        }
+      }
+    }
+
+    // .btn-container {
+    //   max-width: 480px;
+    //   .btn-show-all {
+    //     font-size: 1.3rem;
+    //     width: 80%;
+    //     margin-top: 8px;
+        
+    //   }
+    // }
+  }
+}
