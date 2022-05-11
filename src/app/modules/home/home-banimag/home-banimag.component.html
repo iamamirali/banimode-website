@@ -2,7 +2,7 @@
     <div class="home-banimag">
         <h2 class="banimag-title">جدید ترینِ بانی مگ</h2>
         <div class="home-banimag-slider">
-            <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='homeBanimagSliderConfig'>
+            <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='screenWidth > 600 ? homeBanimagSliderConfig : mobileSlideConfig'>
                 <div class="article-item" ngxSlickItem *ngFor='let article of banimagArticles'>
                     <img src="{{article.image}}" alt="">
                     <h4>{{article.title}}</h4>

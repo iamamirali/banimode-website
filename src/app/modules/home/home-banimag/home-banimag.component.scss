@@ -48,3 +48,19 @@
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+    .home-banimag-container {
+        .home-banimag {
+            max-width: 480px;
+            .home-banimag-slider {
+                .article-item {
+                    margin: 36px 36px 6px 36px;
+                    h4 {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
