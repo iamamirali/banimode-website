@@ -53,3 +53,33 @@
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+    .home-features-container {
+        .home-features {
+            max-width: 480px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 16px 12px;
+    
+            .feature-item {
+                width: 100%;
+                img {
+                    width: 80%;
+                    height: 130px;
+                }
+                h3 {
+                    font-size: 16px;
+                    margin-top: 8px;
+                }
+                p {
+                    font-size: 0.75rem;
+                    max-width: 85%;
+                }
+            }
+            .feature-item::after {
+                width: 0;
+            }
+        }
+    }
+}
