@@ -31,5 +31,8 @@
         grid-template-columns: 1fr 1fr 1fr;
         max-width: 480px;
         margin-top: 56px;
+        .category-item {
+            margin: 0px 12px;
+        }
     }
 }

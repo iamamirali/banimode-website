@@ -2,7 +2,7 @@
     <div class="home-brands">
         <h2 class="brands-title">برترین برند ها در بانی مد</h2>
         <div class="brands-slider">
-            <ngx-slick-carousel class='carousel' #slickModal='slick-carousel' [config]='brandsSlideConfig'>
+            <ngx-slick-carousel class='carousel' #slickModal='slick-carousel' [config]='screenWidth > 600 ? brandsSlideConfig : mobileSlideConfig'>
                 <div ngxSlickItem class="brand-item" *ngFor='let brand of homeBrands'>
                     <img src="{{brand.logo}}" alt="brand" class="brand-img">
                 </div>

@@ -37,3 +37,28 @@
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+    .home-brands-container {
+        .home-brands {
+            max-width: 480px;
+            .brands-title {
+                margin-bottom: 48px;
+            }
+            .brands-slider {
+                .slick-slider {
+                    max-width: 480px;
+                    margin: 0px 28px;
+                    .brand-img {
+                        width: 80%;
+                        margin: auto;
+                    }
+                }
+            }
+            .btn-show-brands {
+                margin-top: 48px;
+                width: 250px;
+            }
+        }
+    }
+}
