@@ -76,3 +76,32 @@
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+    .home-newsletter-container {
+        margin-bottom: 90px;
+        .home-newsletter {
+            max-width: 480px;
+            p {
+                margin: 0px 12px 28px 12px;
+            }
+        }
+        .newsletter-input-container {
+            padding: 12px 10px;
+            width: 90%;
+            border-radius: 40px;
+            input {
+                font-size: 0.8rem;
+                padding: 12px 8px;
+            }
+            .btn-send {
+                display: block;
+                width: 22%;
+                padding: 12px 0px;
+                i {
+                    display: none;
+                }
+            }
+        }
+    }
+}
