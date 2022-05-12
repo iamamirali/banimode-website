@@ -216,3 +216,88 @@ footer {
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+    footer {
+        .footer-container {
+            max-width: 480px;
+            .footer-row-1 {
+                display: block;
+                .refrence-list {
+                    width: 92%;
+                    margin: 0px auto 18px auto;
+                    .list-container:first-child {
+                        width: 23%;
+                    }
+                }
+                .contact-info-container {
+                    text-align: center;
+                    .contact-info-title {
+                        h4 {
+                            font-size: 1.1rem;
+                        }
+                        p {
+                            font-size: 1rem;
+                        }
+                    }
+                    .contact-ways-container {
+                        p {
+                            font-size: 0.95rem;
+                            margin-bottom: 12px;
+                        }
+                    }
+                }
+                .icons-container {
+                    display: block;
+                    text-align: center;
+                    margin-top: 48px;
+                    a {
+                        .footer-brand {
+                            width: 55%;
+                            margin-bottom: 14px;
+                        }
+                    }
+                    .btn-download {
+                        margin-bottom: 36px;
+                    }
+                    .social-icons {
+                        justify-content: center;
+                        margin-left: 10px;
+                    }
+                }
+            }
+
+            .footer-row-2 {
+                display: block;
+                margin-top: 64px;
+                .about-banimode {
+                    max-width: 92%;
+                    margin: 0px auto 24px auto;
+                    text-align: center;
+                }
+                .signs {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 24px 0px;
+                    margin-top: 36px;
+                    .sign-item {
+                        width: 75%;
+                        margin: auto;
+                    }
+                }
+            }
+
+            .footer-copyright {
+                display: block;
+                margin: 36px 0px;
+                text-align: center;
+                .copyright-content-en, .copyright-content-fa {
+                    font-size: 0.9rem;
+                }
+                .copyright-content-fa {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
