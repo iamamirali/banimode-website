@@ -30,7 +30,6 @@ export class ProductPageComponent implements OnInit {
         this.productItem = this.productList.find((item) => item.id_product === +this.route.snapshot.params['id'])
         this.mainImage = this.productItem ? this.productItem.images.zoom[0] : ''
       }
-      console.log(this.productItem);
     })
     this.dataFetch.getSuggestions().subscribe((data) => {
       this.productList = data.data.data
@@ -49,7 +48,5 @@ export class ProductPageComponent implements OnInit {
     this.otherColorData = color
     this.mainImage = color.image[0].image_size.thickbox_default
     if(color) this.isInitImg = false
-    console.log('clicked');
-    
   }
 }

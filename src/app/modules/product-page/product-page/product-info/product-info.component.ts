@@ -33,7 +33,6 @@ export class ProductInfoComponent implements OnInit {
   constructor(private dialog: MatDialog) { }
   
   ngOnInit(): void {
-    console.log(this.productItem);
   }
 
   openDialog() {

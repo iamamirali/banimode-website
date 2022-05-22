@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { DataProccessService } from 'src/app/services/data-proccess.service';
 import { SugessDatum } from 'src/app/models/suggestions.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-suggestions',
@@ -10,11 +10,7 @@ import { SugessDatum } from 'src/app/models/suggestions.model';
 export class HomeSuggestionsComponent implements OnInit {
 
   suggestions : SugessDatum[] = []
-  productHover : boolean[] = []
   screenWidth: number = window.innerWidth
-
-
-  interval: any;
 
   bannerSlideConfig = {
     "slidesToShow": 4,
@@ -26,17 +22,20 @@ export class HomeSuggestionsComponent implements OnInit {
     "autoplaySpeed": 5000,
     "infinite": false,
     "rtl": true,
+    "responsive": [
+      {
+        breakpoint: 480,
+        settings: {
+          "slidesToShow": 1,
+          "slidesToScroll": 1,
+          "nextArrow": '<div style=\'position: absolute; top: 35%; right: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
+          "prevArrow": '<div style=\'position: absolute; top: 35%; left: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
+        }
+      }
+    ]
   }
 
-  mobileSlideConfig = {
-    ...this.bannerSlideConfig,
-    "slidesToShow": 1,
-    "slidesToScroll": 1,
-    "nextArrow": '<div style=\'position: absolute; top: 35%; right: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
-    "prevArrow": '<div style=\'position: absolute; top: 35%; left: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
-  }
-
-  constructor(private fetchData : DataProccessService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getSuggestions()
@@ -47,9 +46,7 @@ export class HomeSuggestionsComponent implements OnInit {
   }
 
   getSuggestions() {
-    this.fetchData.getSuggestions().subscribe((data) => {
-      this.suggestions = data.data.data
-    })
+    this.suggestions = this.route.snapshot.data['homeResolver'].suggestions.data.data
   }
 
 }

@@ -24,7 +24,6 @@ export class ProductCommentsTabComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataProcces.getComments(this.productId).subscribe((data) => {
-      console.log(data);
       this.commentsList = data.data;
     })
   }

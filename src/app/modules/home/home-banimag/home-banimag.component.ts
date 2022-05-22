@@ -1,6 +1,6 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Datum } from 'src/app/models/homeBanimag.model';
-import { DataProccessService } from 'src/app/services/data-proccess.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-home-banimag',
@@ -9,7 +9,6 @@ import { DataProccessService } from 'src/app/services/data-proccess.service';
 })
 export class HomeBanimagComponent implements OnInit {
   banimagArticles : Datum[] = []
-  screenWidth: number = window.innerWidth
 
   homeBanimagSliderConfig = {
     'slidesToShow': 4,
@@ -20,31 +19,28 @@ export class HomeBanimagComponent implements OnInit {
     "infinite": true,
     "autoplay": true,
     "autoplaySpeed": 4000,
-    "rtl": true
+    "rtl": true,
+    "responsive": [
+      {
+        breakpoint: 480,
+        settings: {
+          "slidesToShow": 1,
+          "slidesToScroll": 1,
+          "nextArrow": '<div style=\'position: absolute; top: 40%; right: 14px; z-index: 10; cursor: pointer; font-size: 2rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
+          "prevArrow": '<div style=\'position: absolute; top: 40%; left: 14px; z-index: 10; cursor: pointer; font-size: 2rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
+        }
+      }
+    ]
   }
 
-  mobileSlideConfig = {
-    ...this.homeBanimagSliderConfig,
-    "slidesToShow": 1,
-    "slidesToScroll": 1,
-    "nextArrow": '<div style=\'position: absolute; top: 40%; right: 14px; z-index: 10; cursor: pointer; font-size: 2rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
-    "prevArrow": '<div style=\'position: absolute; top: 40%; left: 14px; z-index: 10; cursor: pointer; font-size: 2rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
-  }
-
-  constructor(private dataFetch : DataProccessService) { }
-
-  @HostListener('window:resize', ['$event']) onResize() {
-    this.screenWidth = window.innerWidth;
-  }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getHomeBanimag()
   }
 
   getHomeBanimag() {
-    this.dataFetch.getHomeBanimag().subscribe((data) => {
-      this.banimagArticles = data.data
-    })
+    this.banimagArticles = this.route.snapshot.data['homeResolver'].banimag.data
   }
 
 }

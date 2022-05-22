@@ -1,14 +1,16 @@
 <div class="top-banner-container">
-    <div class="slider-container" *ngIf='screenWidth > 600; else mobileSlide'>
-        <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig'>
-            <div ngxSlickItem *ngFor='let slide of slides' class="slide">
-                <img src="{{ slide }}" alt="" class="slick-img" width="100%">
-            </div>
-        </ngx-slick-carousel>
+    <div class="slider-container">
+        <div *ngIf='screenWidth > 480; else mobileSlide'>
+            <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig'>
+                <div ngxSlickItem *ngFor='let slide of slides' class="slide">
+                    <img src="{{ slide }}" alt="" class="slick-img" width="100%">
+                </div>
+            </ngx-slick-carousel>
+        </div>
     </div>
 
     <ng-template class="slider-container" #mobileSlide>
-        <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='mobileSlideConfig'>
+        <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig'>
             <div ngxSlickItem *ngFor='let slide of mobileSlides' class="slide">
                 <img src="{{ slide }}" alt="" class="slick-img" width="100%">
             </div>

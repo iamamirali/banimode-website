@@ -16,7 +16,6 @@ export class ProductTabInfoComponent implements OnInit {
 
   onCommentClick() {
     this.isCommentClicked = true
-    console.log(this.isCommentClicked);
   }
 
 }
