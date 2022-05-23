@@ -43,14 +43,6 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
     ]
   }
   
-  // mobileSlideConfig = {
-  //   "slidesToShow": 1,
-  //   "slidesToScroll": 1,
-  //   "nextArrow": '<div style=\'position: absolute; top: 35%; right: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
-  //   "prevArrow": '<div style=\'position: absolute; top: 35%; left: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
-  //   ...this.bannerSlideConfig,
-  // }
-  
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {

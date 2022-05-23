@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'mixins';
+
+.notfound-container {
+    margin: 64px auto;
+    text-align: center;
+    p {
+        font-size: 3rem;
+        margin-bottom: 48px;
+        font-family: 'iranyekan-bold';
+        color: $green;
+    }
+    .btn-home {
+        @include green-btn;
+        font-size: 24px;
+    }
+    .btn-home:hover {
+        background-color: $darkGreen;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .notfound-container {
+        p {
+            font-size: 1.7rem;
+            margin-bottom: 24px;
+        }
+        .btn-home {
+            @include green-btn;
+            font-size: 18px;
+        }
+    }
+}

@@ -21,15 +21,4 @@ export class HomeNewsletterSignupComponent implements OnInit {
     this.dialog.open(NewsletterEmailResultComponent, {
     })
   }
-
-  // onSendEmailClick() {
-  //   const emailData = new FormData()
-  //   emailData.append("email", this.emailInput)
-    
-  //   this.openDialog()
-  //   this.dataFetch.sendEmail(emailData).subscribe((data) => {
-  //     console.log(data);
-  //   })
-  // }
-
 }
