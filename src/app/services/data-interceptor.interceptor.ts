@@ -5,15 +5,16 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, finalize } from 'rxjs/operators';
 import { StateProccessService } from './state-proccess.service';
+import { LoadingService } from './loading.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataInterceptorInterceptor implements HttpInterceptor {
 
-  constructor(private stateService : StateProccessService) {}
+  constructor(private stateService : StateProccessService, private loadingService: LoadingService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     if(this.stateService.getToken()) {
@@ -23,6 +24,9 @@ export class DataInterceptorInterceptor implements HttpInterceptor {
         }
       })
     }
+
+    this.loadingService.showLoading()
+    
     return next.handle(req)
     .pipe(
       catchError((error:any) => {
@@ -35,6 +39,9 @@ export class DataInterceptorInterceptor implements HttpInterceptor {
         
         return throwError(errorMsg)
       })
-    );
+    )
+    .pipe(
+      finalize(() => this.loadingService.hideLoading())
+    )
   }
 }

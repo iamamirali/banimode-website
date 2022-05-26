@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { delay } from 'rxjs/operators';
 import { IPassword } from 'src/app/models/password.model';
 import { DataProccessService } from 'src/app/services/data-proccess.service';
 import { StateProccessService } from 'src/app/services/state-proccess.service';

@@ -23,7 +23,7 @@
         <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig' init-onload="true">
             <div ngxSlickItem *ngFor='let item of flashSales let i = index' class="slide">
                 <div class="product-card">
-                    <a [routerLink]="['/products', item.id_product]">
+                    <a [routerLink]="['products', item.id_product]">
                         <div class="product-img-container">
                             <div>
                                 <div [style.background-image]="'url('+item.images.large_default[0]+')'" alt="" class="product-img"></div>

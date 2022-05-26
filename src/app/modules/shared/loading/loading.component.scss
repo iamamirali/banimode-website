@@ -1,0 +1,37 @@
+@import 'variables';
+
+.loading-overlay {
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    position: fixed;
+    background-color: $milky;
+
+    .loading-container {
+        position: relative;
+        height: 100%;
+        
+        ::ng-deep .mat-spinner {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: 150px !important;
+            height: 150px !important;
+            svg {
+                width: 150px !important;
+                height: 150px !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .loading-overlay {
+        width: 100%;
+        height: 100%;
+    }
+}
