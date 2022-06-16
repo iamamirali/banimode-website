@@ -1,4 +1,4 @@
-<div class="top-banner-container">
+<section class="top-banner-container">
     <div class="slider-container">
         <div *ngIf='screenWidth > 480; else mobileSlide'>
             <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig'>
@@ -16,4 +16,4 @@
             </div>
         </ngx-slick-carousel>
     </ng-template>
-</div>
+</section>
