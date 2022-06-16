@@ -1,4 +1,4 @@
-<main id="main">
+<div id="main-container">
     <div *ngIf='commentsList else noComment' class="comment-container">
         <div *ngFor='let comment of commentsList' class="comment-item">
             <div class="user-icon">
@@ -57,4 +57,4 @@
             </div>
         </form>
     </div>
-</main>
+</div>

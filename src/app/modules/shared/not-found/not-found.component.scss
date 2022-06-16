@@ -4,7 +4,7 @@
 .notfound-container {
     margin: 64px auto;
     text-align: center;
-    p {
+    h1 {
         font-size: 3rem;
         margin-bottom: 48px;
         font-family: 'iranyekan-bold';
@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 480px) {
     .notfound-container {
-        p {
+        h1 {
             font-size: 1.7rem;
             margin-bottom: 24px;
         }
