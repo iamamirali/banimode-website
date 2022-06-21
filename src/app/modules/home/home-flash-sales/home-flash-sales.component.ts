@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, HostListener} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CountDown } from 'src/app/models/class-models/countdown/countDown.model';
 import { FlashDatum } from 'src/app/models/flash-sales.model';
 @Component({
   selector: 'app-home-flash-sales',
@@ -59,26 +60,22 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
     this.flashSales = items.data
     this.timeLeft = items.timer
     const countDownDate : number = new Date().getTime() + this.timeLeft;
-    this.timeLeft ? this.hasTimeLeft = true : this.hasTimeLeft = false
     this.interval = setInterval(()=> {
       this.countDownTimer(countDownDate);
     }, 1000);
   }
 
   countDownTimer(countDownDate : number) {
-    const now = new Date().getTime();
-    const timeLeft = countDownDate - now;
+    let countDown = new CountDown()
+    countDown.timeLeft = countDownDate - countDown.now
+    countDown.setTime()
+      
+    this.time = countDown.hours  + ":" + countDown.minutes + ":" + countDown.seconds;
+    this.hour = countDown.hours
+    this.minute = countDown.minutes
+    this.second = countDown.seconds
 
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-      
-    this.time = hours  + ":" + minutes + ":" + seconds;
-    this.hour = hours
-    this.minute = minutes
-    this.second = seconds
-      
-    if (timeLeft < 0) {
+    if (countDown.timeLeft < 0) {
       clearInterval(this.interval);
       this.hasTimeLeft = false
       this.time = "EXPIRED";
