@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit, HostListener} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CountDown } from 'src/app/models/class-models/countdown/countDown.model';
+import { CountDown } from 'src/app/models/class-models/countDown.model';
 import { FlashDatum } from 'src/app/models/flash-sales.model';
+import { ProductSlider } from '../models/product-slider.model';
 @Component({
   selector: 'app-home-flash-sales',
   templateUrl: './home-flash-sales.component.html',
@@ -20,29 +21,7 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
   second: number | undefined
   screenWidth: number = window.innerWidth
 
-  bannerSlideConfig = {
-    "slidesToShow": 4,
-    "slidesToScroll": 2,
-    "arrows": true,
-    "nextArrow": '<div style=\'position: absolute; top: 45%; right: -10px; z-index: 10; cursor: pointer; font-size: 2.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
-    "prevArrow": '<div style=\'position: absolute; top: 45%; left: -10px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
-    "autoplay": true,
-    "autoplaySpeed": 5000,
-    "infinite": false,
-    "rtl": true,
-    lazyLoad: true,
-    "responsive": [
-      {
-        breakpoint: 480,
-        settings: {
-          "slidesToShow": 1,
-          "slidesToScroll": 1,
-          "nextArrow": '<div style=\'position: absolute; top: 35%; right: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem;\' class=\'next-slide\'><i class="fa fa-angle-right" style=\'color: gray;\'></i></div>',
-          "prevArrow": '<div style=\'position: absolute; top: 35%; left: 18px; z-index: 10; cursor: pointer; font-size: 2.5rem\' class=\'next-slide\'><i class="fa fa-angle-left" style=\'color: gray;\'></i></div>',
-        }
-      }
-    ]
-  }
+  flashSalesSlideConfig = new ProductSlider()
   
   constructor(private route: ActivatedRoute) { }
 

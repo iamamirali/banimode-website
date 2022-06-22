@@ -14,10 +14,10 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { LayoutModule } from './modules/layout/layout.module';
 import { HomeModule } from './modules/home/home.module';
-import { DataInterceptorInterceptor } from './services/data-interceptor.interceptor';
 import { SharedModule } from './modules/shared/shared.module';
-import { LoginBoxComponent } from './modules/shared/login-box/login-box.component';
 import { ProductPageModule } from './modules/product-page/product-page.module';
+import { DataInterceptorInterceptor } from './services/data-interceptor.interceptor';
+import { LoginBoxComponent } from './modules/shared/login-box/login-box.component';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -44,8 +44,6 @@ import { environment } from '../environments/environment';
     NgxImageZoomModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
   ],

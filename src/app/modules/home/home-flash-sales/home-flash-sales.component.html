@@ -20,7 +20,7 @@
     </div>
 
     <div class="flash-sales-slider">
-        <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig' init-onload="true">
+        <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='flashSalesSlideConfig' init-onload="true">
             <div ngxSlickItem *ngFor='let item of flashSales let i = index' class="slide">
                 <div class="product-card">
                     <a [routerLink]="['products', item.id_product]">

@@ -8,7 +8,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class LoadingComponent implements OnInit {
 
-  showLoading: boolean = false
+  showLoading: boolean = true
 
   constructor(private loaderService: LoadingService) { }
 

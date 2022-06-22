@@ -2,7 +2,7 @@
     <h2 class='suggestions-title'>پیشنهادات بانی مد</h2>
     
     <div class="suggestions-slider">
-        <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='bannerSlideConfig'>
+        <ngx-slick-carousel class="carousel" #slickModal='slick-carousel' [config]='suggestionsSlideConfig'>
             <div ngxSlickItem *ngFor='let item of suggestions let i = index' class="slide">
                 <div class="product-card">
                     <a [routerLink]="['/products',item.id_product]">
