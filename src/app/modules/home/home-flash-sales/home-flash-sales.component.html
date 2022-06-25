@@ -4,7 +4,7 @@
         <div class="timer-container">
             <h4 class="timer-title">زمان باقی مانده تا پایان سفارش</h4>
             <div class="timer">
-                <div *ngIf='hasTimeLeft; else expired'>
+                <div *ngIf='hasLeftTime; else expired'>
                     <span class="timer-number">{{hour}}</span>
                     :
                     <span class="timer-number">{{minute}}</span>
