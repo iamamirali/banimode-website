@@ -4,27 +4,20 @@ import { CountDown } from '../models/class-models/countDown.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CountDownService {
-  time: string | undefined
-  hour: number | undefined
-  minute: number | undefined
-  second: number | undefined
-  constructor() { }
+export class CountDownService extends CountDown {
 
-  countdownTimer(countDownDate : number, interval: any, hasLeftTime: boolean) {
-    let countDown = new CountDown()
-    countDown.timeLeft = countDownDate - countDown.now
-    countDown.setTime()
-      
-    this.time = countDown.hours  + ":" + countDown.minutes + ":" + countDown.seconds;
-    this.hour = countDown.hours
-    this.minute = countDown.minutes
-    this.second = countDown.seconds
+  constructor() {
+    super()
+  }
 
-    if (countDown.timeLeft < 0) {
+  countdownTimer(countDownDate: number, interval: any, hasLeftTime: boolean) {
+    this.now = new Date().getTime()
+    this.timeLeft = countDownDate - this.now
+    this.setTime()
+
+    if (this.timeLeft < 0) {
       clearInterval(interval);
       hasLeftTime = false
-      this.time = "EXPIRED";
     }
   }
 }

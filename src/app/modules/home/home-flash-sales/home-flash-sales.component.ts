@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, HostListener} from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FlashDatum } from 'src/app/models/flash-sales.model';
 import { CountDownService } from 'src/app/services/countdown.service';
@@ -9,20 +9,18 @@ import { ProductSlider } from '../models/product-slider.model';
   styleUrls: ['./home-flash-sales.component.scss']
 })
 export class HomeFlashSalesComponent implements OnInit, OnDestroy {
-  flashSales : FlashDatum[] = []
-  productHover : boolean[] = []
+  flashSales: FlashDatum[] = []
+  productHover: boolean[] = []
 
   interval: any;
-  hasLeftTime : boolean = true
-  timeLeft : number = 0
-  time: string | undefined
+  hasLeftTime: boolean = true
   hour: number | undefined
   minute: number | undefined
   second: number | undefined
   screenWidth: number = window.innerWidth
 
   flashSalesSlideConfig = new ProductSlider()
-  
+
   constructor(private route: ActivatedRoute, public countDown: CountDownService) { }
 
   ngOnInit() {
@@ -31,7 +29,7 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event']) onResize(event: any) {
     this.screenWidth = event.target.innerWidth;
-    
+
   }
 
   getFlashSales() {
@@ -39,22 +37,20 @@ export class HomeFlashSalesComponent implements OnInit, OnDestroy {
     this.flashSales = items.data
     this.setFlashSalesTimer(items.timer)
   }
-  
-  setFlashSalesTimer(timer: number) {
-    this.timeLeft = timer
-    const countDownDate: number = new Date().getTime() + this.timeLeft;
 
-    this.interval = setInterval(()=> {
+  setFlashSalesTimer(timer: number) {
+    const countDownDate: number = new Date().getTime() + timer;
+
+    this.interval = setInterval(() => {
       this.countDown.countdownTimer(countDownDate, this.interval, this.hasLeftTime);
       this.timerViewSetter()
     }, 1000);
   }
-  
+
   timerViewSetter() {
-    this.time = this.countDown.time
-    this.hour = this.countDown.hour
-    this.minute = this.countDown.minute
-    this.second = this.countDown.second
+    this.hour = this.countDown.hours
+    this.minute = this.countDown.minutes
+    this.second = this.countDown.seconds
   }
 
   ngOnDestroy() {

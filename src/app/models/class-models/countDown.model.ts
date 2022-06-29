@@ -1,11 +1,11 @@
 export class CountDown {
-    now: number = new Date().getTime()
+    now: number | undefined
     hours: number | undefined
     minutes: number | undefined
     seconds: number | undefined
     timeLeft: number | undefined
     constructor(
-    ) {}
+    ) { }
 
     setTime() {
         if (this.timeLeft) {
